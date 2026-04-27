@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours Exprés - La Aventura Rápida</title>
+    <!-- Incluyendo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración de Tailwind: DEBE ir después del script del CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-teal': '#1a2e23', // Teal vibrante para la marca
+                        'accent-orange': '#256d44', // verde para acentos/botones #00a99d
+                        'bird-blue': '#65786E', // Azul oscuro para la temática de aves
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Estilos personalizados (Fuentes y Scroll) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Fondo muy claro */
+        }
+        /* Estilo básico para anclas al saltar a secciones */
+        .tour-detail-anchor {
+            scroll-margin-top: 80px; /* Espacio para el header fijo */
+        }
+        /* Estilo para la mini galería horizontal */
+        .gallery-scroll-container {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+        .gallery-scroll-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Navegación -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Título que redirige a la sección principal de Wildlife -->
+            <a href="index.html#experiencias" class="text-2xl font-bold tracking-tight text-emerald-900 uppercase hover:text-emerald-700 transition">
+                EXPERIENCIAS<span class="font-light text-stone-500">WILDLIFE</span>
+            </a>
+            
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <!-- Botón de regreso a Inicio -->
+                <a href="index.html" class="text-sm font-medium uppercase tracking-widest text-stone-600 hover:text-emerald-700 transition flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Inicio
+                </a>
+                <!-- Botón de WhatsApp en el Header -->
+                <a href="https://wa.me/5219511234567" target="_blank" class="bg-emerald-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 transition flex items-center shadow-md">
+                    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.01 0-3.987-.508-5.723-1.47l-6.261 1.644zm6.46-4.015c1.455.863 3.012 1.319 4.606 1.319 4.966 0 9.013-4.047 9.013-9.013 0-2.405-.937-4.667-2.637-6.368s-3.963-2.636-6.368-2.636c-4.965 0-9.012 4.047-9.012 9.012 0 1.678.463 3.32 1.34 4.774l-.887 3.24 3.322-.871c.028.006.056.012.083.018zm11.332-6.505c-.247-.124-1.463-.721-1.689-.804-.226-.083-.391-.124-.555.124s-.638.804-.782.969-.288.185-.535.062c-.247-.124-1.041-.383-1.983-1.223-.733-.655-1.228-1.463-1.371-1.71-.144-.247-.015-.381.109-.504.112-.111.247-.288.37-.432.124-.144.165-.247.247-.412.083-.165.042-.309-.021-.432s-.555-1.339-.761-1.833c-.2-.482-.403-.413-.555-.42l-.473-.01c-.165 0-.432.062-.658.309s-.865.845-.865 2.06 1.483 2.41 1.689 2.698c.206.288 2.92 4.458 7.073 6.252.988.427 1.758.682 2.359.872.992.314 1.895.269 2.608.163.795-.119 1.463-.597 1.689-1.235s.226-1.174.157-1.235c-.069-.062-.262-.144-.509-.268z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Sección Principal (Hero) -->
+    <main class="pt-10 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-primary-teal text-white p-8 md:p-16 rounded-3xl shadow-xl mb-12">
+                <div class="lg:w-3/4">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-4 leading-tight">
+                        Tours de Observación de Aves: Rutas Exprés en Oaxaca
+                    </h2>
+                    <p class="text-xl opacity-90 mb-6">
+                        Explora la increíble biodiversidad de Oaxaca en recorridos de medio día. Perfectos para birders y amantes de la naturaleza con tiempo limitado.
+                    </p>
+                    <a href="#tours-disponibles" class="inline-block bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                        Ver Rutas de Aves →
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Información Logística General de Tours de Aves -->
+            <section id="logistica" class="mb-16">
+                 <h3 class="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-bird-blue pb-2">
+                    Logística General del Tour de Aves
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Incluye -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-primary-teal">
+                        <h4 class="text-xl font-bold text-primary-teal mb-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Qué Incluye
+                        </h4>
+                        <ul class="list-none space-y-2 text-gray-600">
+                            <li>Guía especializado en aves de Oaxaca</li>
+                            <li>Binoculares de cortesía (sujeto a disponibilidad)</li>
+                            <li>Lista de aves del sitio (eBird + curada)</li>
+                            <li>Transporte ida y vuelta desde Oaxaca de Juárez</li>
+                            <li>Asesoría para fotografía de fauna</li>
+                            <li>Agua purificada</li>
+                        </ul>
+                    </div>
+
+                    <!-- No Incluye -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-accent-orange">
+                        <h4 class="text-xl font-bold text-accent-orange mb-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Qué No Incluye
+                        </h4>
+                        <ul class="list-none space-y-2 text-gray-600">
+                            <li>Accesos o cuotas de entrada al área (si aplican)</li>
+                            <li>Alimentos y bebidas adicionales</li>
+                            <li>Propinas</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Qué Llevar -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-bird-blue">
+                        <h4 class="text-xl font-bold text-bird-blue mb-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+                            Qué Llevar
+                        </h4>
+                        <ul class="list-none space-y-2 text-gray-600">
+                            <li>Calzado cómodo para sendero/terracería/rocoso</li>
+                            <li>Gorra o sombrero, bloqueador solar</li>
+                            <li>Ropa ligera de manga larga (preferentemente colores neutros)</li>
+                            <li>Binoculares o cámara (si tienes propios)</li>
+                            <li>Agua adicional (opcional)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- 4. Listado de Tours Exprés (Total 8 Tours: 3 generales + 8 aves) -->
+            <section id="tours-disponibles" class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-primary-teal pb-2">
+                    Nuestras Rutas de Aventura Exprés
+                </h3>
+
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                    
+                    <!-- Tour 1: Bosque El Tequio (NUEVO AVE 1) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                        <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=TEQUIO+AVES" 
+                             alt="[Imagen de aves en zona metropolitana de Oaxaca]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: Bosque El Tequio</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Caminata suave, ideal para principiantes y observación de colibríes y endémicas urbanas.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    2.5–4 Hrs
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                                </span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-tequio').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tour 2: Parque Ecoturismo Donají (AVE 2) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                         <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=DONAJI+SELVAS" 
+                             alt="[Imagen de aves en el Parque Ecoturismo Donají]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: Parque Ecoturismo Donají</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Mosaico de hábitats (selva baja, arroyos) para endémicas del Valle y migratorias.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    4–6 Horas
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-donaji').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tour 3: Monte Albán (NUEVO AVE 3) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                        <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=MONTE+ALBAN+AVES" 
+                             alt="[Imagen de Monte Albán]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: Monte Albán</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Especies de selva baja caducifolia y matorral xerófilo. Riqueza endémica.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    4–6 Horas
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-monte-alban').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour 4: Atzompa (NUEVO AVE 4) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                        <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=ATZOMPA+ECOTONO" 
+                             alt="[Imagen de Atzompa]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: Atzompa</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Corredor de transición entre selva baja y encinar. Menor afluencia turística.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    4–6 Horas
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-atzompa').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tour 5: La Cumbre (AVE 5) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                         <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=CUMBRE+AVES" 
+                             alt="[Imagen de la cumbre]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: La Cumbre</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Alta montaña (2,600m+). Ideal para endémicas de bosque templado húmedo.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    4–6 Horas
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-lacumbre').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour 6: Yagul (NUEVO AVE 3) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                        <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=YAGUL+AVES" 
+                             alt="[Imagen de Monte Albán]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: Yagul</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Especies endémicas y aves especializadas en zonas áridas.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    4–6 Horas
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-yagul').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tour 7: Presa Huayapám (NUEVO AVE 3) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                        <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=HUAYAPAM+AVES" 
+                             alt="[Imagen de Huayapám ]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: Huayapám</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Especies de aves acuáticas y especies que utilizan el borde entre el agua y vegetación.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    3–5 Horas
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-huayapam').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Tour 8: Cerro del Fortín (NUEVO AVE 3) -->
+                    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden border border-gray-100">
+                        <div class="bg-bird-blue p-1 text-center text-xs font-semibold text-white">RUTA DE AVES</div>
+                        <img class="w-full h-40 object-cover object-center" 
+                             src="https://placehold.co/600x400/1e40af/ffffff?text=CERRO+DEL+FORTIN+AVES" 
+                             alt="[Imagen de Cerro del Fortín]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-bird-blue mb-1">Aves: Cerro del Fortín</h4>
+                            <p class="text-gray-600 mb-3 text-xs">Especies de bosque urbano, laderas con matorral y parches de encino que funcionan como refugio para aves residentes y migratorias.</p>
+                            
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-700 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-accent-orange"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    3-5 Horas
+                                </span>
+                                <span class="font-bold text-base text-red-600">A Consultar</span>
+                            </div>
+                            
+                            <button onclick="document.getElementById('details-cerrodelfortin').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-bird-blue hover:bg-blue-800 text-white font-semibold py-2 rounded-lg text-sm transition duration-200">
+                                Ver Detalles
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+            <!-- 5. Tours Futuros / Placeholders -->
+            <section class="mt-16 mb-12">
+                 <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-2 border-gray-300 pb-2">
+                    Otros Tours Express (Próximamente)
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Placeholder 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 opacity-70">
+                        <img class="w-full h-40 object-cover object-center grayscale" 
+                             src="https://placehold.co/600x400/cccccc/ffffff?text=PROXIMAMENTE" 
+                             alt="[Placeholder de una nueva ruta]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-gray-500 mb-1">Tour Express: Mezcal y Chocolate</h4>
+                            <p class="text-gray-400 mb-3 text-xs">Visita rápida a productores locales con degustación dirigida.</p>
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-400 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-gray-400"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    3 Horas
+                                </span>
+                                <span class="font-bold text-base text-gray-400">Lanzamiento</span>
+                            </div>
+                            <button class="w-full bg-gray-300 text-gray-600 font-semibold py-2 rounded-lg text-sm cursor-not-allowed" disabled>
+                                Notificarme
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 opacity-70">
+                         <img class="w-full h-40 object-cover object-center grayscale" 
+                             src="https://placehold.co/600x400/cccccc/ffffff?text=PROXIMAMENTE" 
+                             alt="[Placeholder de una nueva ruta]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-gray-500 mb-1">Tour Express: Artesanías del Valle</h4>
+                            <p class="text-gray-400 mb-3 text-xs">Conoce talleres de alfarería y telares en un recorrido optimizado.</p>
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-400 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-gray-400"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    4 Horas
+                                </span>
+                                <span class="font-bold text-base text-gray-400">Lanzamiento</span>
+                            </div>
+                            <button class="w-full bg-gray-300 text-gray-600 font-semibold py-2 rounded-lg text-sm cursor-not-allowed" disabled>
+                                Notificarme
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Placeholder 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 opacity-70">
+                         <img class="w-full h-40 object-cover object-center grayscale" 
+                             src="https://placehold.co/600x400/cccccc/ffffff?text=PROXIMAMENTE" 
+                             alt="[Placeholder de una nueva ruta]"
+                        />
+                        <div class="p-4">
+                            <h4 class="text-lg font-bold text-gray-500 mb-1">Tour Express: Historia del Centro</h4>
+                            <p class="text-gray-400 mb-3 text-xs">Recorrido a pie por los puntos históricos y arquitectura clave.</p>
+                            <div class="flex justify-between items-center text-sm mb-3">
+                                <span class="flex items-center text-gray-400 font-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 text-gray-400"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                    2 Horas
+                                </span>
+                                <span class="font-bold text-base text-gray-400">Lanzamiento</span>
+                            </div>
+                            <button class="w-full bg-gray-300 text-gray-600 font-semibold py-2 rounded-lg text-sm cursor-not-allowed" disabled>
+                                Notificarme
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 6. Sección de Detalles de Tours de Aves (Actualizados y Nuevos) -->
+            <section id="detalles-exclusivos" class="mt-20">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 border-b-2 border-bird-blue pb-2">
+                    Detalles Completos de Tours de Aves
+                </h3>
+
+                <!-- DETALLE 1: Bosque El Tequio (NUEVO) -->
+                <div id="details-tequio" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Aves en el Bosque El Tequio</h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes | Duración: 2.5–4 hrs | Horario recomendado: 6:30–10:30 h | Salida: Oaxaca de Juárez</p>
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes del Bosque El Tequio</h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=Bosque+el+tequio+1" 
+                                 alt="Bosque el tequio 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=Bosque+el+tequio+2" 
+                                 alt="Bosque el tequio 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=Bosque+el+tequio+3" 
+                                 alt="Bosque el tequio 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=Bosque+el+tequio+4" 
+                                 alt="Bosque el tequio 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=Bosque+el+tequio+5" 
+                                 alt="Bosque el tequio 1"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">El Bosque El Tequio, área verde extensa de la zona metropolitana de Oaxaca, ofrece senderos amplios y buena movilidad, siendo ideal para observadores con poco tiempo, familias o actividades educativas. Es un refugio clave para especies residentes y migratorias en un entorno urbano accesible.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Baja</p>
+                                <p class="text-sm text-red-600">Caminata suave por senderos y zonas arboladas. Dificultad mínima. Punto de encuentro en la entrada principal o estacionamiento.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (30-60 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Chipe Cabeza Gris y Rabadilla Amarilla.</li>
+				                <li>Gorrión Arlequín.</li>
+				                <li>Carpintero del Balsas.</li>
+                                <li>Cuicacoche Pico Curvo.</li>
+                                <li>Caracara.</li>
+                                <li>Colibrí Opaco.</li>
+                                <li>Perico monje argentino.</li>
+                                <li>Papamoscas Cardenalito.</li>
+                                <li>Buho Cornudo.</li>
+                                <li>Tirano Tijereta Rosado.</li>
+                                <a href="https://ebird.org/hotspot/L282519" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:00 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Primer punto: Matorral semiárido (colibríes, cuitlacoches).</li>
+                                <li>Arroyo temporal: Especies de vegetación densa.</li>
+                                <li>Campos abiertos y puntos elevados (rapaces, tiránidos).</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                         </div>
+                    </div>
+                     
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';">
+                            ¡Reservar Bosque El Tequio!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DETALLE 2: Parque Ecoturismo Donají (ACTUALIZADO CON GALERÍA) -->
+                <div id="details-donaji" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Observación de Aves en el Parque Ecoturismo Donají</h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes – intermedios | Duración: 4–6 hrs | Horario recomendado: 6:00–11:00 h | Salida: Oaxaca de Juárez</p>
+                    
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes del Parque Ecoturismo Donají </h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=Donaji+1" 
+                                 alt="Donají 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=Donaji+2" 
+                                 alt="Donají 2"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=Donaji+3" 
+                                 alt="Donají 3"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=Donaji+4" 
+                                 alt="Donají 4"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=Donaji+5" 
+                                 alt="Donají 5"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+                    
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">El Parque Ecoturismo Donají combina parcelas agrícolas, selva baja caducifolia y arroyos temporales, creando un mosaico ideal para aves residentes y migratorias. Es una zona tranquila y cercana para recorridos fotográficos y observación auditiva.</p>
+                            <p class="text-gray-600">Público: Turistas, fotógrafos y birders que buscan un recorrido cercano, económico y diverso, sin necesidad de entrar a una zona arqueológica.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Bajo a Moderado</p>
+                                <p class="text-sm text-red-600">Caminatas en terracería, vegetación baja y laderas suaves. Accesible sin pendientes exigentes.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (30-40 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Colibrí Berilio.</li>
+				                <li>Sastrecillo.</li>
+				                <li>Eufonia Gorra Azul.</li>
+                                <li>Gorriones .</li>
+                                <li>Chara de Collar.</li>
+                                <li>Paloma Encinera.</li>
+                                <li>Aguila Cola Roja.</li>
+                                <li>Zorzal Pico Naranja.</li>
+                                <li>Calandria Capucha Negra y Piranga Encinera.</li>
+                                <li>Chipe Cara Roja y Gorra Canela.</li>
+                                <a href="https://ebird.org/hotspot/L10641862" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:00 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Primer punto: Matorral semiárido (colibríes, cuitlacoches).</li>
+                                <li>Arroyo temporal: Especies de vegetación densa.</li>
+                                <li>Campos abiertos y puntos elevados (rapaces, tiránidos).</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';">
+                            ¡Reservar Parque Ecoturismo Donají!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DETALLE 3: Monte Albán (NUEVO) -->
+                 <div id="details-monte-alban" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Observación de Aves en Monte Albán</h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes – intermedios | Duración: 4–6 hrs | Horario recomendado: 6:30–12:00 h | Salida: Oaxaca de Juárez</p>
+                     
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes de Monte Albán</h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=Monte+alban+1" 
+                                 alt="Monte alban 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=Monte+alban+2" 
+                                 alt="Monte alban 2"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=Monte+alban+3" 
+                                 alt="Monte alban 3"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=Monte+alban+4" 
+                                 alt="Monte alban 4"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=Monte+alban+5" 
+                                 alt="Monte alban 5"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">Monte Albán es un punto crítico para observar aves asociadas a selva baja caducifolia y matorral xerófilo. La estrategia es realizar paradas estratégicas fuera y alrededor de la zona arqueológica para maximizar las detecciones sin interferir con el flujo turístico.</p>
+                            <p class="text-gray-600">Público: Birders que valoran la combinación de historia y riqueza biológica endémica en un recorrido optimizado.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Ligero a Moderado</p>
+                                <p class="text-sm text-red-600">Terreno con pendientes suaves. Apropiado para principiantes y caminata ágil.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (35-60 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Rascador Oaxaqueño.</li>
+				                <li>Cuicacoche Moteado.</li>
+				                <li>Papamoscas Cardenalito.</li>
+                                <li>Golondrina Verdemar.</li>
+                                <li>Colibrí Magnífico.</li>
+                                <li>Zacatonero Embridado.</li>
+                                <li>Colorin Pecho Canela.</li>
+                                <li>Gorrión Oaxaqueño.</li>
+                                <li>Matraca del balsas.</li>
+                                <li>Rapaces.</li>
+                                <a href="https://ebird.org/hotspot/L282510" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:30 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Primer punto: Laderas y zonas semiabiertas.</li>
+                                <li>Sendero perimetral de Monte Albán.</li>
+                                <li>Punto alto para rapaces y colibríes.</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';">
+                            ¡Reservar Monte Albán!
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- DETALLE 4: Atzompa (NUEVO) -->
+                <div id="details-atzompa" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Observación de Aves en Atzompa</h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes – intermedios | Duración: 4–6 hrs | Horario recomendado: 6:30–12:00 h | Salida: Oaxaca de Juárez</p>
+                                       
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes de Atzompa</h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=Atzompa+1" 
+                                 alt="Atzompa 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=Atzompa+2" 
+                                 alt="Atzompa 2"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=Atzompa+3" 
+                                 alt="Atzompa 3"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=Atzompa+4" 
+                                 alt="Atzompa 4"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=Atzompa+5" 
+                                 alt="Atzompa 5"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">Atzompa se ubica en una cresta elevada con transiciones de selva baja caducifolia, encinar y matorrales. Este ecotono crea un corredor ideal para especies de zonas templadas y semiáridas. Su ventaja principal es la menor afluencia turística, permitiendo una mejor detección auditiva y fotografía.</p>
+                            <p class="text-gray-600">Público: Birders y fotógrafos interesados en especies de transición entre ecosistemas templados y secos con un entorno tranquilo.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Moderado</p>
+                                <p class="text-sm text-red-600">Caminata por senderos con pendientes cortas y tramos en roca. Apto para personas con condición física básica.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (20-40 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Saltapared Cola Larga.</li>
+				                <li>Saltapared de Rocas.</li>
+				                <li>Calandria de Wagler.</li>
+                                <li>Colibrí Corona Violeta.</li>
+                                <li>Rascador Oaxaqueño.</li>
+                                <li>Colorín Siete Colores.</li>
+                                <li>Pradero Tortilla con  chile.</li>
+                                <li>Verdugo Americano.</li>
+                                <li>Cuervo Común.</li>
+                                <li>Rapaces.</li>
+                                <a href="https://ebird.org/hotspot/L3867009" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:30 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Primer punto: Borde de encinar (rapaces, colibríes).</li>
+                                <li>Recorrido por cresta y zonas rocosas.</li>
+                                <li>Mirador natural para barridos y fotografía.</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';"> 
+                            ¡Reservar Atzompa!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DETALLE 5: La Cumbre (ACTUALIZADO) -->
+                <div id="details-lacumbre" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Observación de Aves en La Cumbre </h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes – intermedios | Duración: 4–6 hrs | Horario recomendado: 6:00–12:00 h | Salida: Oaxaca de Juárez</p>
+                                        
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes de La Cumbre</h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=La+cumbre+1" 
+                                 alt="La Cumbre 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=La+cumbre+2" 
+                                 alt="La Cumbre 2"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=La+cumbre+3" 
+                                 alt="La Cumbre 3"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=La+cumbre+4" 
+                                 alt="La Cumbre 4"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=La+cumbre+5" 
+                                 alt="La Cumbre 5"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">La Cumbre (2,600–3,000 msnm) es el punto más accesible para observar aves de bosque templado (pinos, encinos, oyameles). Su altitud asegura especies que no se encuentran en el Valle de Oaxaca, ideal para endémicas de montaña y bosque húmedo.</p>
+                            <p class="text-gray-600">Público: Birders que buscan endémicas de alta montaña y hábitats húmedos, con un acceso rápido desde la ciudad.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Moderado-Bajo</p>
+                                <p class="text-sm text-red-600">Caminatas en senderos de montaña con pendientes suaves. ¡Recuerda llevar ropa abrigadora!</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (30-50 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Chara Copetona.</li>
+				                <li>Coa Mexicana.</li>
+				                <li>Rascador de Collar.</li>
+                                <li>Chipe Rojo.</li>
+                                <li>Tecolote ritmico.</li>
+                                <li>Colibri Orejas Violeeta.</li>
+                                <li>Matraca Barrada.</li>
+                                <li>Clarín Jilguero.</li>
+                                <li>Tecolote Serrano.</li>
+                                <li>Aguililla Aura.</li>
+                                <a href="https://ebird.org/hotspot/L304462" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:00 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Sendero de pino–encino (colibríes, chipes).</li>
+                                <li>Miradores de bosque maduro (trogones, rapaces).</li>
+                                <li>Segmento de oyamel (especialistas de alta montaña).</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';">
+                            ¡Reservar La Cumbre!
+                        </button>
+                    </div>
+                </div>
+                <!-- DETALLE 6: Yagul (ACTUALIZADO) -->
+                <div id="details-yagul" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Observación de Aves en Yagul</h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes – intermedios | Duración: 4–6 hrs | Horario recomendado: 6:30–12:00 h | Salida: Oaxaca de Juárez</p>
+                                    
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes de Yagul</h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=Yagul+1" 
+                                 alt="Yagul 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=Yagul+2" 
+                                 alt="Yagul 2"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=Yagul+3" 
+                                 alt="Yagul 3"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=Yagul+4" 
+                                 alt="Yagul 4"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=Yagul+5" 
+                                 alt="Yagul 5"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">Yagul es un sitio arqueológico rodeado por uno de los mejores ejemplos de matorral xerófilo y selva baja caducifolia del Valle de Tlacolula, hábitat ideal para especies endémicas y aves especializadas en zonas áridas. Sus formaciones rocosas, cactus columnares y microcañones ofrecen puntos estratégicos de observación con excelente iluminación por la mañana.</p>
+                            <p class="text-gray-600">Público: Birders principiantes/intermedios, fotógrafos, y turistas interesados en aves endémicas y ecosistemas áridos.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Moderado-Bajo</p>
+                                <p class="text-sm text-red-600">Caminatas en senderos de montaña con pendientes suaves. Terreno árido con pendientes breves. Apto para principiantes.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (40-60 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Pinzón Mexicano.</li>
+				                <li>Colibrí Cola Ancha.</li>
+				                <li>centzontle Norteño.</li>
+                                <li>Calandria Dorso Rayado.</li>
+                                <li>Colibrí Corona azul.</li>
+                                <li>Aguililla Cola Blanca.</li>
+                                <li>Correcaminos.</li>
+                                <li>Colorín Azul.</li>
+                                <li>Cuco Ardilla Mexicado.</li>
+                                <li>Gorrión Cejas Blancas.</li>
+                                <a href="https://ebird.org/hotspot/L329343" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:00 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Primer punto: matorral con cactus columnares (colibríes, cuitlacoches).</li>
+                                <li>Sendero hacia formaciones rocosas (rapaces y chipes).</li>
+                                <li>Punto elevado para barridos y detección auditiva.</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <!-- Se corrigió el onclick para usar el modal de simulación -->
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';">
+                            ¡Reservar Yagul!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DETALLE 5: Huayapám (ACTUALIZADO) -->
+                <div id="details-huayapam" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Observación de Aves en Huayapám</h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes – intermedios | Duración: 3–5 hrs | Horario recomendado: 6:00–11:00 h | Salida: Oaxaca de Juárez</p>
+                                    
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes de Huayapám</h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=Huayapám+1" 
+                                 alt="Huayapám 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=Huayapám+2" 
+                                 alt="Huayapám 2"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=Huayapám+3" 
+                                 alt="Huayapám 3"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=Huayapám+4" 
+                                 alt="Huayapám 4"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=Huayapám+5" 
+                                 alt="Huayapám 5"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">La Presa El Estudiante y Benito Juárez son de los humedales artificiales más productivos del Valle de Oaxaca. Su mezcla de espejo de agua, carrizales, matorral espinoso y laderas abiertas permite registrar una alta diversidad en poco tiempo. Es un sitio ideal para fotografía de aves acuáticas y especies que utilizan el borde entre el agua y vegetación.</p>
+                            <p class="text-gray-600">Público: Fotografía de aves acuáticas, observadores intermedios-principiantes, actividades educativas, listas grandes en poco tiempo.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Moderado-Bajo</p>
+                                <p class="text-sm text-red-600">Caminata y observación en bordes de agua, matorral y laderas.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (30-50 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Zambullidor Pico Grueso.</li>
+				                <li>Aguila Pescadora.</li>
+				                <li>Garzas Nocturnas.</li>
+                                <li>Martin Pescador.</li>
+                                <li>Playero Alzacolita.</li>
+                                <li>Mulato Azul.</li>
+                                <li>Patos y gansos.</li>
+                                <li>Pijije Alas Blancas.</li>
+                                <li>Papamoscas Negro.</li>
+                                <li>Picogordo Azul.</li>
+                                <a href="https://ebird.org/hotspot/L881375" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:00 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Observación en la zona de carrizal (garzas, martines pescadores).</li>
+                                <li>Recorrido por orilla de la presa (acuáticas y rapaces).</li>
+                                <li>Senderos secos y laderas (paserinos del matorral).</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';">
+                            ¡Reservar Presa El Estudiante!
+                        </button>
+                    </div>
+                </div>
+                <!-- DETALLE 8: Cerro del Fortín (ACTUALIZADO) -->
+                <div id="details-cerrodelfortin" class="tour-detail-anchor bg-white p-6 md:p-10 rounded-2xl shadow-lg mb-10 border-l-4 border-bird-blue">
+                    <h4 class="text-3xl font-extrabold text-bird-blue mb-4">Tour de Observación de Aves en Cerro del Fortín</h4>
+                    <p class="text-lg text-gray-700 mb-6 font-medium">Nivel: Principiantes | Duración: 3-5 hrs | Horario recomendado: 6:30–11:00 h | Salida: Oaxaca de Juárez</p>
+                                       
+                    <!-- INICIO DE MINI GALERÍA -->
+                    <div class="mb-8 w-full">
+                        <h5 class="font-bold text-xl text-primary-teal mb-3">Imágenes de Cerro del Fortín</h5>
+                        <div class="flex space-x-4 overflow-x-auto p-2 gallery-scroll-container">
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/4c4c4c/ffffff?text=Cerro+del+Fortín<+1" 
+                                 alt="Cerro del Fortín< 1"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/5a67d8/ffffff?text=Cerro+del+Fortín<+2" 
+                                 alt="Cerro del Fortín< 2"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/2c5282/ffffff?text=Cerro+del+Fortín<+3" 
+                                 alt="Cerro del Fortín< 3"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/48bb78/ffffff?text=Cerro+del+Fortín<+4" 
+                                 alt="Cerro del Fortín< 4"
+                            />
+                            <img class="flex-shrink-0 w-60 h-40 object-cover rounded-lg shadow-md" 
+                                 src="https://placehold.co/300x200/9f7aea/ffffff?text=Cerro+del+Fortín<+5" 
+                                 alt="Cerro del Fortín< 5"
+                            />
+                        </div>
+                    </div>
+                    <!-- FIN DE MINI GALERÍA -->
+                    <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Descripción y Accesibilidad</h5>
+                            <p class="text-gray-600 mb-4">El Cerro del Fortín es uno de los puntos naturales más emblemáticos de Oaxaca de Juárez. A pocos minutos del centro histórico, combina bosque urbano, laderas con matorral y parches de encino que funcionan como refugio para aves residentes y migratorias. Su ubicación elevada ofrece vistas panorámicas del valle y una excelente oportunidad para observar aves en un entorno accesible sin salir de la ciudad.</p>
+                            <p class="text-gray-600">Público: Aves urbanas, principiantes, fotógrafos, observadores intermedios, familias, viajeros con poco tiempo disponible.</p>
+                            <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                                <p class="font-bold text-red-700">Esfuerzo Físico: Moderado-Bajo</p>
+                                <p class="text-sm text-red-600"> Caminata tranquila por senderos y zonas arboladas con pendientes suaves!</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Especies Esperadas (25-45 sp)</h5>
+                            <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                <li>Piranga Roja.</li>
+				                <li>Carpintero Mexicano.</li>
+				                <li>Mirlo Primavera.</li>
+                                <li>Vireo Plomizo.</li>
+                                <li>Calandria Cejas Naranjas.</li>
+                                <li>Mosquero de Balsas.</li>
+                                <li>Coa Elegante.</li>
+                                <li>Chipe de Townsed.</li>
+                                <li>Chipe de Virginia.</li>
+                                <li>Chinito.</li>
+                                <a href="https://ebird.org/hotspot/L506550" target="_blank" class="link-text, text-blue-500" >
+                                 eBird </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-xl text-accent-orange mb-2">Itinerario Exprés</h5>
+                            <ol class="list-decimal list-inside text-gray-600 space-y-1">
+                                <li>6:30 h: Salida puntual desde Oaxaca de Juárez.</li>
+                                <li>Primer punto: matorral semiárido (colibríes, cuitlacoches)</li>
+                                <li>Arroyo temporal: especies de vegetación densa.</li>
+                                <li>Campos abiertos y puntos elevados (rapaces, tiránidos).</li>
+                                <li>Revisión final de especies + checklist digitalizado.</li>
+                                <li>Regreso a la ciudad.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center bg-primary-teal p-4 rounded-xl text-white">
+                        <p class="text-lg mb-1">Servicios incluidos son los detallados en la sección de Logística General.</p>
+                        <button class="mt-4 bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105" onclick="window.location.href = 'https://wa.me/529514069368';">
+                            ¡Reservar Cerro del Fortín!
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- 7. Pie de Página -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Tours Exprés. Todos los derechos reservados.</p>
+            <p class="mt-1">Contacto rápido: vdharius@gmai.com | Tel: +52 951 406 9368</p>
+        </div>
+    </footer>
+
+    <!-- Script para simular una acción de reserva (mensaje modal simple) -->
+    <script>
+        // Usamos un simple modal en lugar de alert()
+        function showModal(title, message) {
+            const existingModal = document.getElementById('custom-modal');
+            if (existingModal) existingModal.remove();
+
+            const modalHtml = `
+                <div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-100">
+                        <h3 class="text-2xl font-bold text-primary-teal mb-4">${title}</h3>
+                        <p class="text-gray-700 mb-6">${message}</p>
+                        <button onclick="document.getElementById('custom-modal').remove()" class="w-full bg-accent-orange hover:bg-orange-700 text-white font-semibold py-2 rounded-lg transition duration-200">
+                            Entendido
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                // Adjuntar el modal a los botones de "Reservar Ahora!" (los tours generales)
+                if (button.textContent.includes('¡Reservar Ahora!')) {
+                    button.addEventListener('click', (e) => {
+                        const tourTitle = e.target.closest('.overflow-hidden').querySelector('h4').textContent;
+                        showModal('¡Reserva Iniciada!', `Estás a un paso de reservar: <span class="font-semibold">${tourTitle}</span>. Un agente se pondrá en contacto contigo en breve.`);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

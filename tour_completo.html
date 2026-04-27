@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours de Avistamiento de Aves - Día Completo en Oaxaca</title>
+    <!-- Incluyendo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuración de Tailwind: DEBE ir después del script del CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Paleta de colores consistente con tours_expres.html
+                        'primary-teal': '#1a2e23', // Teal vibrante para la marca
+                        'accent-orange': '#256d44', // Verde para acentos/botones
+                        'bird-blue': '#65786E', // Azul oscuro para la temática de aves
+                        'oaxaca-gold': '#f5b500', // Dorado/amarillo para resaltar
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos personalizados (Fuentes y Scroll) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* Fondo muy claro */
+        }
+        /* Ajuste para el scroll cuando se usa el hash (navegación interna) */
+        .tour-detail-anchor {
+            scroll-margin-top: 80px; /* Offset para el header fijo */
+        }
+
+        /* Estilo para iconos/listas */
+        .list-style-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-style-check li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        .list-style-check li svg {
+            flex-shrink: 0;
+            margin-right: 0.5rem;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navegación -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Título que redirige a la sección principal de Wildlife -->
+            <a href="index.html#experiencias" class="text-2xl font-bold tracking-tight text-emerald-900 uppercase hover:text-emerald-700 transition">
+                EXPERIENCIAS<span class="font-light text-stone-500">WILDLIFE</span>
+            </a>
+            
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <!-- Botón de regreso a Inicio -->
+                <a href="index.html" class="text-sm font-medium uppercase tracking-widest text-stone-600 hover:text-emerald-700 transition flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Inicio
+                </a>
+                <!-- Botón de WhatsApp en el Header -->
+                <a href="https://wa.me/5219511234567" target="_blank" class="bg-emerald-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 transition flex items-center shadow-md">
+                    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.01 0-3.987-.508-5.723-1.47l-6.261 1.644zm6.46-4.015c1.455.863 3.012 1.319 4.606 1.319 4.966 0 9.013-4.047 9.013-9.013 0-2.405-.937-4.667-2.637-6.368s-3.963-2.636-6.368-2.636c-4.965 0-9.012 4.047-9.012 9.012 0 1.678.463 3.32 1.34 4.774l-.887 3.24 3.322-.871c.028.006.056.012.083.018zm11.332-6.505c-.247-.124-1.463-.721-1.689-.804-.226-.083-.391-.124-.555.124s-.638.804-.782.969-.288.185-.535.062c-.247-.124-1.041-.383-1.983-1.223-.733-.655-1.228-1.463-1.371-1.71-.144-.247-.015-.381.109-.504.112-.111.247-.288.37-.432.124-.144.165-.247.247-.412.083-.165.042-.309-.021-.432s-.555-1.339-.761-1.833c-.2-.482-.403-.413-.555-.42l-.473-.01c-.165 0-.432.062-.658.309s-.865.845-.865 2.06 1.483 2.41 1.689 2.698c.206.288 2.92 4.458 7.073 6.252.988.427 1.758.682 2.359.872.992.314 1.895.269 2.608.163.795-.119 1.463-.597 1.689-1.235s.226-1.174.157-1.235c-.069-.062-.262-.144-.509-.268z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-bird-blue text-white py-20 px-4 sm:px-6 lg:px-8 shadow-inner">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight">
+                <span class="text-primary-teal">Aventura de Día Completo</span>
+                <br> Avistamiento de Aves en Oaxaca
+            </h2>
+            <p class="text-xl sm:text-2xl font-light opacity-90 mb-8">
+                De 8 a 12 horas explorando ecosistemas únicos. Ideal para la fotografía, birders y amantes de la naturaleza.
+            </p>
+            <!-- El botón solo dice "Ver Destinos" y enlaza a la sección #destinos -->
+            <button onclick="document.getElementById('destinos').scrollIntoView({behavior: 'smooth'})" class="bg-accent-orange hover:bg-orange-700 text-white text-lg font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-xl">
+                Ver Destinos
+            </button>
+        </div>
+    </section>
+
+    <!-- Sección de Detalles (Qué Incluye/No Incluye/Llevar) - Aplica a la versión de UN solo día -->
+    <section id="incluye" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold text-center text-bird-blue mb-12">Detalles de la Expedición (Tour Día Completo)</h3>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Columna Qué Incluye -->
+                <div class="bg-green-50 p-6 rounded-xl shadow-lg border-t-4 border-primary-teal">
+                    <h4 class="text-2xl font-bold text-primary-teal mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-primary-teal mr-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                        Lo que Incluye (Día Único)
+                    </h4>
+                    <ul class="list-style-check">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-primary-teal"><path d="M20 6 9 17l-5-5"/></svg>Guía especializado en aves de Oaxaca</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-primary-teal"><path d="M20 6 9 17l-5-5"/></svg>Binoculares de cortesía (sujeto a disponibilidad)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-primary-teal"><path d="M20 6 9 17l-5-5"/></svg>Lista de aves del sitio (eBird + lista curada)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-primary-teal"><path d="M20 6 9 17l-5-5"/></svg>Transporte ida y vuelta desde Oaxaca de Juárez</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-primary-teal"><path d="M20 6 9 17l-5-5"/></svg>Hospedaje (N/A para tours de un solo día)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-primary-teal"><path d="M20 6 9 17l-5-5"/></svg>Asesoría para fotografía de fauna</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-primary-teal"><path d="M20 6 9 17l-5-5"/></svg>Agua purificada</li>
+                    </ul>
+                </div>
+
+                <!-- Columna Qué NO Incluye -->
+                <div class="bg-red-50 p-6 rounded-xl shadow-lg border-t-4 border-accent-orange">
+                    <h4 class="text-2xl font-bold text-accent-orange mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-circle text-accent-orange mr-2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                        Lo que No Incluye
+                    </h4>
+                    <ul class="list-style-check">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-accent-orange"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Accesos o cuotas de entrada al área (si aplican)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-accent-orange"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Alimentos (desayuno, comida, cena)</li>
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x text-accent-orange"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Propinas (guías, conductores)</li>
+                    </ul>
+                </div>
+
+                <!-- Columna Qué Llevar y Requisitos -->
+                <div class="bg-blue-50 p-6 rounded-xl shadow-lg border-t-4 border-bird-blue">
+                    <h4 class="text-2xl font-bold text-bird-blue mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-backpack text-bird-blue mr-2"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4.38a1 1 0 0 1-.85-.37l-.46-.57A2 2 0 0 0 9.87 3H7.83a2 2 0 0 0-1.57.73l-.43.57a1 1 0 0 1-.85.37H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2Z"/><path d="M9 18V9"/><path d="M15 18V9"/></svg>
+                        Qué Llevar y Requisitos
+                    </h4>
+                    <p class="text-lg font-semibold text-gray-700 mb-2">Requisitos:</p>
+                    <ul class="list-disc ml-5 text-sm mb-4 space-y-1">
+                        <li>Nivel de caminata: <span class="font-bold">moderado</span>.</li>
+                        <li>Ideal para <span class="font-bold">fotógrafos, principiantes y birders avanzados.</span></li>
+                    </ul>
+                    <p class="text-lg font-semibold text-gray-700 mb-2">Artículos Esenciales:</p>
+                    <ul class="list-disc ml-5 text-sm space-y-1">
+                        <li>Calzado cómodo para sendero/terracería/rocoso.</li>
+                        <li>Gorra o sombrero, bloqueador solar.</li>
+                        <li>Ropa ligera de manga larga (preferentemente colores neutros).</li>
+                        <li>Binoculares o cámara (si tienes propios).</li>
+                        <li>Chamarra ligera y agua adicional (opcional).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección de Destinos y Rutas -->
+    <section id="destinos" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100 tour-detail-anchor">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-4xl font-extrabold text-center text-bird-blue mb-6">Nuestros Destinos de Día Completo</h3>
+            <p class="text-xl text-center text-gray-600 mb-12">Explora la biodiversidad de Oaxaca en expediciones diseñadas para cada tipo de aventurero.</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Tour Card 1: Sierra Norte (Destacado A) -->
+                <div id="tour-sierra-norte" class="bg-white rounded-xl shadow-2xl overflow-hidden border-b-4 border-primary-teal transition duration-300 hover:shadow-primary-teal/50 tour-detail-anchor">
+                    <img src="https://placehold.co/600x400/00a99d/ffffff?text=Sierra+Norte+Bosque" alt="Paisaje de la Sierra Norte de Oaxaca" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-bird-blue mb-2">A. Sierra Norte: Benito Juárez / Cuajimoloyas</h4>
+                        <span class="inline-block bg-primary-teal text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">BOSQUE TEMPLADO</span>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 mb-4 space-y-1">
+                            <li>Benito Juárez – Cuajimoloyas</li>
+                            <li>Aves de bosque templado y fotografía.</li>
+                            <li>Ideal para observar rapaces y aves endémicas de altura.</li>
+                        </ul>
+                        <div class="mt-4 border-t pt-4">
+                            <p class="text-xl font-bold text-accent-orange">Desde $1,400 MXN</p>
+                            <!-- Botón de "Ver Detalles" y enlace a su detalle a profundidad -->
+                            <a href="#detalles-a" class="block w-full text-center bg-primary-teal hover:bg-teal-700 text-white font-semibold py-2 rounded-lg mt-3 transition duration-200 shadow-md">
+                                Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 2: Yagul + Mitla (Destacado B) -->
+                <div id="tour-yagul-mitla" class="bg-white rounded-xl shadow-2xl overflow-hidden border-b-4 border-oaxaca-gold transition duration-300 hover:shadow-oaxaca-gold/50 tour-detail-anchor">
+                    <img src="https://placehold.co/600x400/f5b500/000000?text=Yagul+Mitla+Ruinas" alt="Ruinas de Yagul con vegetación" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-bird-blue mb-2">B. Yagul + Mitla (Naturaleza + Cultura)</h4>
+                        <span class="inline-block bg-oaxaca-gold text-bird-blue text-xs font-semibold px-3 py-1 rounded-full mb-3">CULTURA ZAPOTECA</span>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 mb-4 space-y-1">
+                            <li>Combinación única de aves y zonas arqueológicas.</li>
+                            <li>Exploración de aves y cultura Zapoteca.</li>
+                            <li>Perfecto para los interesados en historia y vida silvestre.</li>
+                        </ul>
+                        <div class="mt-4 border-t pt-4">
+                            <p class="text-xl font-bold text-accent-orange">Desde $1,200 MXN</p>
+                            <!-- Botón de "Ver Detalles" y enlace a su detalle a profundidad -->
+                            <a href="#detalles-b" class="block w-full text-center bg-primary-teal hover:bg-teal-700 text-white font-semibold py-2 rounded-lg mt-3 transition duration-200 shadow-md">
+                                Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 3: San José del Pacífico (Destacado C) -->
+                <div id="tour-sanjose" class="bg-white rounded-xl shadow-2xl overflow-hidden border-b-4 border-bird-blue transition duration-300 hover:shadow-bird-blue/50 tour-detail-anchor">
+                    <img src="https://placehold.co/600x400/1e40af/ffffff?text=Bosque+de+Neblina" alt="Bosque de neblina en San José del Pacífico" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-bird-blue mb-2">C. San José del Pacífico – Bosque de Neblina</h4>
+                        <span class="inline-block bg-bird-blue text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">FOTOGRAFÍA PREMIUM</span>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 mb-4 space-y-1">
+                            <li>Experiencia de neblina + herpetofauna (anfibios).</li>
+                            <li>Observación de aves exclusivas de bosque nuboso.</li>
+                            <li>Día completo, con enfoque en paisajes y especies raras.</li>
+                        </ul>
+                        <div class="mt-4 border-t pt-4">
+                            <p class="text-xl font-bold text-accent-orange">Desde $1,600 MXN</p>
+                            <!-- Botón de "Ver Detalles" y enlace a su detalle a profundidad -->
+                            <a href="#detalles-c" class="block w-full text-center bg-primary-teal hover:bg-teal-700 text-white font-semibold py-2 rounded-lg mt-3 transition duration-200 shadow-md">
+                                Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour Card 4: Mazunte + Ventanilla (Destacado D) -->
+                <div id="tour-costa" class="bg-white rounded-xl shadow-2xl overflow-hidden border-b-4 border-primary-teal transition duration-300 hover:shadow-primary-teal/50 tour-detail-anchor">
+                    <img src="https://placehold.co/600x400/00a99d/ffffff?text=Mazunte+Ventanilla+Manglar" alt="Manglares y fauna en Mazunte" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-2xl font-bold text-bird-blue mb-2">D. Costa – Mazunte + Ventanilla</h4>
+                        <span class="inline-block bg-primary-teal text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">AVES ACUÁTICAS</span>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 mb-4 space-y-1">
+                            <li>Exploración de manglares, cocodrilos y aves acuáticas.</li>
+                            <li>Una ruta costera para especies marinas y de humedales.</li>
+                            <li>Día completo con enfoque en la fauna de la costa de Oaxaca.</li>
+                        </ul>
+                        <div class="mt-4 border-t pt-4">
+                            <p class="text-xl font-bold text-accent-orange">Desde $1,800 MXN</p>
+                            <!-- Botón de "Ver Detalles" y enlace a su detalle a profundidad -->
+                            <a href="#detalles-d" class="block w-full text-center bg-primary-teal hover:bg-teal-700 text-white font-semibold py-2 rounded-lg mt-3 transition duration-200 shadow-md">
+                                Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVA SECCIÓN: Detalles a Profundidad (Incluye opciones de Día Completo e Inmersivo) -->
+            <div id="detalles-profundidad" class="lg:col-span-3 mt-16 tour-detail-anchor">
+                <h4 class="text-3xl font-bold text-bird-blue mb-8 text-center border-b pb-4 border-primary-teal">Detalles a Profundidad por Destino Principal</h4>
+                <p class="text-lg text-center text-gray-600 mb-12">Cada destino ofrece una opción de Día Completo y una de Inmersión (2 Días / 1 Noche).</p>
+
+                <!-- Detail A: Sierra Norte - ID y ancla añadidos -->
+                
+                <div id="detalles-a" class="tour-detail-block bg-white p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-primary-teal tour-detail-anchor">
+                    <h5 class="text-3xl font-extrabold text-primary-teal mb-4">A. Sierra Norte: Benito Juárez / Cuajimoloyas</h5>
+                    <p class="text-gray-600 mb-6 border-b pb-4">
+                        <span class="font-semibold">Tour Día Completo (aprox. 12 horas):</span> Avistamiento intensivo enfocado en aves endémicas de altura y rapaces. Retorno el mismo día.
+                    </p>
+
+                    <!-- Detalle Premium -->
+                    <div class="bg-teal-50 p-6 rounded-lg border border-primary-teal">
+                        <h6 class="text-2xl font-bold text-bird-blue mb-4">Tour Premium: Sierra Norte Inmersiva (2 días / 1 noche)</h6>
+                        
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Descripción general</h6>
+                        <p class="text-gray-600 text-sm">Una experiencia intensiva de observación de aves en el corazón de la Sierra Norte de Oaxaca. El recorrido combina senderos comunitarios, bosque nuboso y zonas de transición donde la diversidad biológica es especialmente alta. Ideal para quien busca un acercamiento profundo a las aves de montaña y a la vida comunitaria local.</p>
+			
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Hábitat y entorno</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Bosque mesófilo de montaña, pino-encino y zonas de neblina.</li>
+                            <li>Senderos comunitarios con excelentes puntos de observación.</li>
+                            <li>Altitudes entre 2,800 y 3,100 m s.n.m., ideales para especies endémicas.</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Especies destacadas (ejemplos)</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Colibrí oreja violeta (Colibri thalassinus)</li>
+                            <li>Chipe rojizo (Cardellina rubra) – <span class="font-bold text-accent-orange">endémico</span></li>
+                            <li>Gorrión serrano (Xenospiza baileyi) – <span class="font-bold text-accent-orange">endémico</span></li>
+                            <li>Trepador enano (Sitta pygmaea)</li>
+                            <li>Carpintero bellotero (Melanerpes formicivorus)</li>
+                            <li>Cotorras serranas y búhos de alta montaña (según temporada)</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Incluye</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Hospedaje en cabaña comunitaria (1 noche)</li>
+                            <li>Transporte completo desde Oaxaca de Juárez</li>
+                            <li>Entradas y permisos comunitarios</li>
+                            <li>Botanas y bebidas</li>
+                            <li>Acompañamiento por guía especializado</li>
+                            <li>Fotografías del recorrido</li>
+                            <li>Coordinación integral del viaje</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Duración y Nivel</h6>
+                        <p class="text-gray-600 text-sm mb-4">2 días / 1 noche. Nivel de actividad: <span class="font-bold">Moderado</span> (senderos con pendientes y altitud).</p>
+
+                        
+                        
+                        <!-- Galería de Fotos (Añadido por solicitud del usuario) -->
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h3 class="text-2xl font-semibold text-bird-blue mb-4">Galería del Tour Inmersivo</h3>
+                            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                                <!-- 5 Imágenes de Placeholder de Bosque de Altura -->
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+1" alt="Foto 1 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+2" alt="Foto 2 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/ff7a00/ffffff?text=Sierra+Norte+3" alt="Foto 3 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+4" alt="Foto 4 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+5" alt="Foto 5 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                            </div>
+                        </div>
+                        <!-- Fin de Galería de Fotos -->
+                    </div>
+                </div>
+
+                <!-- Detail B: Yagul + Mitla - ID y ancla añadidos -->
+                <div id="detalles-b" class="tour-detail-block bg-white p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-oaxaca-gold tour-detail-anchor">
+                    <h5 class="text-3xl font-extrabold text-oaxaca-gold mb-4">B. Yagul + Mitla (Naturaleza + Cultura)</h5>
+                    <p class="text-gray-600 mb-6 border-b pb-4">
+                        <span class="font-semibold">Tour Día Completo (aprox. 8-10 horas):</span> Combinación de avistamiento en matorrales de Yagul y exploración cultural en Mitla. Retorno el mismo día.
+                    </p>
+
+                    <!-- Detalle Premium (Simulado) -->
+                    <div class="bg-yellow-50 p-6 rounded-lg border border-oaxaca-gold">
+                        <h6 class="text-2xl font-bold text-bird-blue mb-4">Tour Premium: Valles Centrales Profundos (2 días / 1 noche)</h6>
+                        
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Descripción general</h6>
+                        <p class="text-gray-600 text-sm">Exploración a fondo de la transición de hábitats del Valle de Tlacolula, combinando la observación de aves de desierto y matorral con una inmersión completa en la arqueología y vida rural de los Valles Centrales, incluyendo una noche en una localidad histórica.</p>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Hábitat y entorno</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Matorral xerófilo, zonas agrícolas y ruinas prehispánicas.</li>
+                            <li>Barrancas rocosas y cuevas cercanas a Yagul.</li>
+                            <li>Altitudes entre 1,500 y 1,800 m s.n.m., clima cálido y seco.</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Especies destacadas (ejemplos)</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Matraca oaxaqueña (Campylorhynchus jocosus) – <span class="font-bold text-accent-orange">endémico</span></li>
+                            <li>Colibrí cándido (Amazilia candida)</li>
+                            <li>Zopilote rey (Sarcoramphus papa) – (Avistamiento raro/potencial)</li>
+                            <li>Chipe de cabeza rayada (Basileuterus rufifrons)</li>
+                            <li>Búho cornudo (Bubo virginianus)</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Incluye</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Hospedaje en posada rural o cabaña (1 noche)</li>
+                            <li>Transporte completo desde Oaxaca de Juárez</li>
+                            <li>Entradas y permisos a zonas arqueológicas y naturales</li>
+                            <li>Botanas y bebidas</li>
+                            <li>Acompañamiento por guía especializado</li>
+                            <li>Fotografías del recorrido</li>
+                            <li>Coordinación integral del viaje</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Duración y Nivel</h6>
+                        <p class="text-gray-600 text-sm mb-4">2 días / 1 noche. Nivel de actividad: <span class="font-bold">Bajo a Moderado</span> (caminatas cortas y exploración de ruinas).</p>
+
+                        <!-- Galería de Fotos (Añadido por solicitud del usuario) -->
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h3 class="text-2xl font-semibold text-bird-blue mb-4">Galería del Tour Inmersivo</h3>
+                            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                                <!-- 5 Imágenes de Placeholder de Bosque de Altura -->
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+1" alt="Foto 1 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+2" alt="Foto 2 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/ff7a00/ffffff?text=Sierra+Norte+3" alt="Foto 3 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+4" alt="Foto 4 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+5" alt="Foto 5 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                            </div>
+                        </div>
+                        <!-- Fin de Galería de Fotos -->
+                    </div>
+                </div>
+
+                <!-- Detail C: San José del Pacífico - ID y ancla añadidos -->
+                <div id="detalles-c" class="tour-detail-block bg-white p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-bird-blue tour-detail-anchor">
+                    <h5 class="text-3xl font-extrabold text-bird-blue mb-4">C. San José del Pacífico – Bosque de Neblina</h5>
+                    <p class="text-gray-600 mb-6 border-b pb-4">
+                        <span class="font-semibold">Tour Día Completo (aprox. 12 horas):</span> Exploración en el bosque de neblina para observación de trogones y fotografía de paisaje. Retorno el mismo día.
+                    </p>
+
+                    <!-- Detalle Premium (Simulado) -->
+                    <div class="bg-blue-50 p-6 rounded-lg border border-bird-blue">
+                        <h6 class="text-2xl font-bold text-primary-teal mb-4">Tour Premium: Neblina y Trogones Inmersiva (2 días / 1 noche)</h6>
+                        
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Descripción general</h6>
+                        <p class="text-gray-600 text-sm">Una expedición profunda al corazón del bosque de niebla en la Sierra Sur. Se pasa la noche en la zona para aprovechar las horas de mayor actividad (amanecer y atardecer) y buscar especies altamente especializadas de este ecosistema.</p>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Hábitat y entorno</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Bosque de niebla denso con alta humedad.</li>
+                            <li>Presencia de musgos, orquídeas y helechos gigantes.</li>
+                            <li>Altitudes entre 2,200 y 2,600 m s.n.m.</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Especies destacadas (ejemplos)</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Quetzal (Pharomachrus mocinno) – (Temporada invernal/primaveral)</li>
+                            <li>Trogón de montaña (Trogon mexicanus)</li>
+                            <li>Pájaro carpintero (Centurus aurifrons)</li>
+                            <li>Chipe gorra negra (Cardellina palliata) – <span class="font-bold text-accent-orange">endémico</span> de la Sierra Sur</li>
+                            <li>Tucaneta (Aulacorhynchus prasinus)</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Incluye</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Hospedaje en cabaña rústica/ecológica (1 noche)</li>
+                            <li>Transporte completo desde Oaxaca de Juárez</li>
+                            <li>Entradas y permisos comunitarios</li>
+                            <li>Botanas y bebidas</li>
+                            <li>Acompañamiento por guía especializado</li>
+                            <li>Fotografías del recorrido</li>
+                            <li>Coordinación integral del viaje</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Duración y Nivel</h6>
+                        <p class="text-gray-600 text-sm mb-4">2 días / 1 noche. Nivel de actividad: <span class="font-bold">Moderado/Alto</span> (senderos resbaladizos y altitud).</p>
+
+                        
+                        <!-- Galería de Fotos (Añadido por solicitud del usuario) -->
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h3 class="text-2xl font-semibold text-bird-blue mb-4">Galería del Tour Inmersivo</h3>
+                            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                                <!-- 5 Imágenes de Placeholder de Bosque de Altura -->
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+1" alt="Foto 1 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+2" alt="Foto 2 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/ff7a00/ffffff?text=Sierra+Norte+3" alt="Foto 3 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+4" alt="Foto 4 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+5" alt="Foto 5 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                            </div>
+                        </div>
+                        <!-- Fin de Galería de Fotos -->
+                    </div>
+                </div>
+
+                <!-- Detail D: Costa – Mazunte + Ventanilla - ID y ancla añadidos -->
+                <div id="detalles-d" class="tour-detail-block bg-white p-8 rounded-xl shadow-2xl border-l-8 border-primary-teal tour-detail-anchor">
+                    <h5 class="text-3xl font-extrabold text-primary-teal mb-4">D. Costa – Mazunte + Ventanilla</h5>
+                    <p class="text-gray-600 mb-6 border-b pb-4">
+                        <span class="font-semibold">Tour Día Completo (aprox. 14 horas):</span> Trayecto largo con avistamiento de aves acuáticas en manglares y cocodrilos. Retorno a Oaxaca de Juárez en la noche.
+                    </p>
+
+                    <!-- Detalle Premium (Simulado) -->
+                    <div class="bg-teal-50 p-6 rounded-lg border border-primary-teal">
+                        <h6 class="text-2xl font-bold text-bird-blue mb-4">Tour Premium: Costa y Manglares Inmersiva (2 días / 1 noche)</h6>
+                        
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Descripción general</h6>
+                        <p class="text-gray-600 text-sm">Una expedición costera completa, incluyendo un amanecer en la playa para aves marinas y playeras, y un recorrido extenso en los manglares. Permite aprovechar los mejores momentos de avistamiento en el ecosistema costero.</p>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Hábitat y entorno</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Manglares, playas, estuarios y selva seca costera.</li>
+                            <li>Centro Mexicano de la Tortuga.</li>
+                            <li>Altitudes a nivel del mar, clima cálido y húmedo.</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Especies destacadas (ejemplos)</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Garzón cocoi (Ardea cocoi)</li>
+                            <li>Pelícano pardo (Pelecanus occidentalis)</li>
+                            <li>Martín pescador (diversas especies)</li>
+                            <li>Pato real (Cairina moschata)</li>
+                            <li>Perico de frente naranja (Eupsittula canicularis) – aves de selva seca</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Incluye</h6>
+                        <ul class="list-disc ml-5 text-sm text-gray-600 space-y-1">
+                            <li>Hospedaje en hotel/cabaña en la costa (1 noche)</li>
+                            <li>Transporte completo desde Oaxaca de Juárez</li>
+                            <li>Paseo en lancha en Ventanilla</li>
+                            <li>Entradas y permisos</li>
+                            <li>Botanas y bebidas</li>
+                            <li>Acompañamiento por guía especializado</li>
+                            <li>Fotografías del recorrido</li>
+                            <li>Coordinación integral del viaje</li>
+                        </ul>
+
+                        <h6 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Duración y Nivel</h6>
+                        <p class="text-gray-600 text-sm mb-4">2 días / 1 noche. Nivel de actividad: <span class="font-bold">Bajo</span> (principalmente paseo en lancha y caminatas planas).</p>
+                        
+                        <!-- Galería de Fotos (Añadido por solicitud del usuario) -->
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h3 class="text-2xl font-semibold text-bird-blue mb-4">Galería del Tour Inmersivo</h3>
+                            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                                <!-- 5 Imágenes de Placeholder de Bosque de Altura -->
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+1" alt="Foto 1 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+2" alt="Foto 2 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/ff7a00/ffffff?text=Sierra+Norte+3" alt="Foto 3 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/1e40af/ffffff?text=Sierra+Norte+4" alt="Foto 4 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                                <img src="https://placehold.co/400x300/00a99d/ffffff?text=Sierra+Norte+5" alt="Foto 5 de la Sierra Norte" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                            </div>
+                        </div>
+                        <!-- Fin de Galería de Fotos -->
+                    </div>
+                </div>
+            </div>
+            <!-- FIN NUEVA SECCIÓN DE DETALLES -->
+
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm">&copy; 2024 Oaxaca Birders. Tours de Avistamiento de Aves. ¡Tu aventura nos espera!</p>
+        </div>
+    </footer>
+
+    <!-- Script de Modal Personalizado (Para reemplazar alert/confirm) -->
+    <script>
+        /**
+         * Función para mostrar un modal personalizado en lugar de alert().
+         * @param {string} title - Título del modal.
+         * @param {string} message - Mensaje a mostrar en el cuerpo del modal.
+         */
+        function showModal(title, message) {
+            // Eliminar cualquier modal existente para evitar duplicados
+            const existingModal = document.getElementById('custom-modal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+
+            // Crear el HTML del modal
+            const modalHtml = `
+                <div id="custom-modal" class="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-[9999] p-4 transition-opacity duration-300 opacity-0" style="opacity: 1;">
+                    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-100">
+                        <h3 class="text-2xl font-bold text-primary-teal mb-4">${title}</h3>
+                        <p class="text-gray-700 mb-6">${message}</p>
+                        <button onclick="document.getElementById('custom-modal').remove()" class="w-full bg-accent-orange hover:bg-orange-700 text-white font-semibold py-2 rounded-lg transition duration-200">
+                            Entendido
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+    </script>
+</body>
+</html>

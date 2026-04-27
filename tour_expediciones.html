@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours y Expediciones | Experiencias Wildlife</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(6, 78, 59, 0.6), rgba(6, 78, 59, 0.6)), url('https://images.unsplash.com/photo-1444464666168-49d633b867ad?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .card-glass:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-emerald-950">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Título que redirige a index.html -->
+            <a href="index.html" class="text-2xl font-bold tracking-tight text-emerald-900 uppercase hover:text-emerald-700 transition">
+                EXPERIENCIAS<span class="font-light text-emerald-600">WILDLIFE</span>
+            </a>
+            
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <!-- Botón de regreso a Inicio -->
+                <a href="index.html" class="text-sm font-medium uppercase tracking-widest text-emerald-800 hover:text-emerald-600 transition flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Inicio
+                </a>
+                <!-- Botón de WhatsApp en el Header -->
+                <a href="https://wa.me/tu_numero" target="_blank" class="bg-emerald-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 transition flex items-center shadow-md">
+                    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.01 0-3.987-.508-5.723-1.47l-6.261 1.644zm6.46-4.015c1.455.863 3.012 1.319 4.606 1.319 4.966 0 9.013-4.047 9.013-9.013 0-2.405-.937-4.667-2.637-6.368s-3.963-2.636-6.368-2.636c-4.965 0-9.012 4.047-9.012 9.012 0 1.678.463 3.32 1.34 4.774l-.887 3.24 3.322-.871c.028.006.056.012.083.018zm11.332-6.505c-.247-.124-1.463-.721-1.689-.804-.226-.083-.391-.124-.555.124s-.638.804-.782.969-.288.185-.535.062c-.247-.124-1.041-.383-1.983-1.223-.733-.655-1.228-1.463-1.371-1.71-.144-.247-.015-.381.109-.504.112-.111.247-.288.37-.432.124-.144.165-.247.247-.412.083-.165.042-.309-.021-.432s-.555-1.339-.761-1.833c-.2-.482-.403-.413-.555-.42l-.473-.01c-.165 0-.432.062-.658.309s-.865.845-.865 2.06 1.483 2.41 1.689 2.698c.206.288 2.92 4.458 7.073 6.252.988.427 1.758.682 2.359.872.992.314 1.895.269 2.608.163.795-.119 1.463-.597 1.689-1.235s.226-1.174.157-1.235c-.069-.062-.262-.144-.509-.268z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="relative h-[60vh] flex items-center justify-center hero-gradient text-white text-center px-4">
+        <div class="max-w-4xl pt-20">
+            <span class="uppercase tracking-[0.3em] text-sm mb-4 block animate-fade-in text-emerald-200">Catálogo de Experiencias</span>
+            <h1 class="text-4xl md:text-6xl mb-6">Tours y Expediciones Wildlife</h1>
+            <p class="text-lg font-light opacity-90 max-w-2xl mx-auto">Itinerarios especializados diseñados por biólogos y guías expertos en la biodiversidad de Oaxaca.</p>
+        </div>
+    </header>
+
+    <!-- Sección de Destinos -->
+    <section id="experiencias" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="mb-16">
+            <h2 class="text-4xl mb-4 text-emerald-900">Santuarios Wildlife</h2>
+            <p class="text-emerald-700/70 max-w-xl">Regiones de alto valor biológico que forman parte de nuestros recorridos exclusivos.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Sierra Sur -->
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200">ALTA ENDEMIA</span>
+                    <span class="text-emerald-300 text-sm">#01</span>
+                </div>
+                <h3 class="text-2xl mb-2 text-emerald-900">Sierra Sur de Oaxaca</h3>
+                <p class="text-sm text-emerald-600 mb-6">(Miahuatlán – San Mateo Río Hondo)</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-emerald-400 mb-2">Aves Destacadas</h4>
+                        <ul class="text-emerald-800 text-sm italic">
+                            <li>• Colibrí de Oaxaca</li>
+                            <li>• Chara Enana</li>
+                            <li>• Reinita de Montaña</li>
+                        </ul>
+                    </div>
+                    <p class="text-emerald-700 text-sm leading-relaxed border-t border-emerald-100 pt-4">Baja presión turística y máxima rareza para coleccionistas de avistamientos.</p>
+                </div>
+            </div>
+
+            <!-- Pluma Hidalgo -->
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-100">FOTOGRAFÍA</span>
+                    <span class="text-emerald-300 text-sm">#02</span>
+                </div>
+                <h3 class="text-2xl mb-2 text-emerald-900">Pluma Hidalgo</h3>
+                <p class="text-sm text-emerald-600 mb-6">Bosque Mesófilo + Cafetales</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-emerald-400 mb-2">Aves Destacadas</h4>
+                        <ul class="text-emerald-800 text-sm italic">
+                            <li>• Tangara siete colores</li>
+                            <li>• Eufonia garganta azul</li>
+                            <li>• Tucancillo verde</li>
+                        </ul>
+                    </div>
+                    <p class="text-emerald-700 text-sm leading-relaxed border-t border-emerald-100 pt-4">Ambientes abiertos ideales para capturar especies carismáticas con luz perfecta.</p>
+                </div>
+            </div>
+
+            <!-- Chacahua -->
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200">DIVERSIDAD</span>
+                    <span class="text-emerald-300 text-sm">#03</span>
+                </div>
+                <h3 class="text-2xl mb-2 text-emerald-900">Chacahua–Lagunas</h3>
+                <p class="text-sm text-emerald-600 mb-6">Manglar & Costa</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-emerald-400 mb-2">Aves Destacadas</h4>
+                        <ul class="text-emerald-800 text-sm italic">
+                            <li>• Espátula rosada</li>
+                            <li>• Garza rojiza</li>
+                            <li>• Ibis blanco</li>
+                        </ul>
+                    </div>
+                    <p class="text-emerald-700 text-sm leading-relaxed border-t border-emerald-100 pt-4">El contraste total con la sierra; suma una diversidad funcional masiva al tour.</p>
+                </div>
+            </div>
+
+            <!-- Istmo -->
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="bg-emerald-800 text-white text-xs font-bold px-3 py-1 rounded-full">AVANZADO</span>
+                    <span class="text-emerald-300 text-sm">#04</span>
+                </div>
+                <h3 class="text-2xl mb-2 text-emerald-900">Istmo de Tehuantepec</h3>
+                <p class="text-sm text-emerald-600 mb-6">Biogeografía Distinta</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-emerald-400 mb-2">Aves Destacadas</h4>
+                        <ul class="text-emerald-800 text-sm italic">
+                            <li>• Chipe patilludo</li>
+                            <li>• Vireo manglero</li>
+                            <li>• Halcón reidor</li>
+                        </ul>
+                    </div>
+                    <p class="text-emerald-700 text-sm leading-relaxed border-t border-emerald-100 pt-4">Rompe el sesgo serrano. Atractivo imperdible para observadores avanzados.</p>
+                </div>
+            </div>
+
+            <!-- La Cañada -->
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="bg-emerald-200 text-emerald-900 text-xs font-bold px-3 py-1 rounded-full">ECOSISTEMAS</span>
+                    <span class="text-emerald-300 text-sm">#05</span>
+                </div>
+                <h3 class="text-2xl mb-2 text-emerald-900">La Cañada</h3>
+                <p class="text-sm text-emerald-600 mb-6">Valle Árido Especializado</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-emerald-400 mb-2">Aves Destacadas</h4>
+                        <ul class="text-emerald-800 text-sm italic">
+                            <li>• Matraca del desierto</li>
+                            <li>• Cardenal rojo</li>
+                            <li>• Colibrí lucifer</li>
+                        </ul>
+                    </div>
+                    <p class="text-emerald-700 text-sm leading-relaxed border-t border-emerald-100 pt-4">Narrativa ecológica potente en un entorno de belleza extrema y árida.</p>
+                </div>
+            </div>
+
+            <!-- Reserva Tehuacán -->
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="bg-emerald-900 text-emerald-50 text-xs font-bold px-3 py-1 rounded-full">UNESCO</span>
+                    <span class="text-emerald-300 text-sm">#06</span>
+                </div>
+                <h3 class="text-2xl mb-2 text-emerald-900">RB Tehuacán-Cuicatlán</h3>
+                <p class="text-sm text-emerald-600 mb-6">Patrimonio de la Humanidad</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase text-emerald-400 mb-2">Aves Destacadas</h4>
+                        <ul class="text-emerald-800 text-sm italic">
+                            <li>• Chipe rojo</li>
+                            <li>• Chara del oeste</li>
+                            <li>• Colibrí berilo</li>
+                        </ul>
+                    </div>
+                    <p class="text-emerald-700 text-sm leading-relaxed border-t border-emerald-100 pt-4">Peso institucional y educativo de clase mundial para visitantes internacionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Rutas -->
+    <section class="bg-emerald-950 text-white py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-4xl mb-4">Itinerarios de Especialidad</h2>
+                <p class="text-emerald-200/60">Diseñados para maximizar los encuentros con la fauna local.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Ruta 1 -->
+                <div class="border-l border-emerald-400 pl-8">
+                    <h3 class="text-xl font-semibold mb-4 text-emerald-100">Ruta Balanceada (6 Días)</h3>
+                    <p class="text-emerald-300/70 text-sm mb-6">Ideal para una primera inmersión profunda en el estado.</p>
+                    <ul class="space-y-3 text-emerald-100/90 text-sm italic">
+                        <li>• Sierra Norte</li>
+                        <li>• Valles Centrales</li>
+                        <li>• Sierra Sur</li>
+                        <li>• Costa</li>
+                    </ul>
+                </div>
+
+                <!-- Ruta 2 -->
+                <div class="border-l border-emerald-400 pl-8">
+                    <h3 class="text-xl font-semibold mb-4 text-emerald-100">Endémica Premium (8-10 Días)</h3>
+                    <p class="text-emerald-300/70 text-sm mb-6">Para coleccionistas de endemismos y observadores de alto nivel.</p>
+                    <ul class="space-y-3 text-emerald-100/90 text-sm italic">
+                        <li>• Sierra Norte</li>
+                        <li>• Sierra Sur</li>
+                        <li>• La Cañada</li>
+                        <li>• Tehuacán-Cuicatlán</li>
+                    </ul>
+                </div>
+
+                <!-- Ruta 3 -->
+                <div class="border-l border-emerald-400 pl-8">
+                    <h3 class="text-xl font-semibold mb-4 text-emerald-100">Fotográfica Avanzada</h3>
+                    <p class="text-emerald-300/70 text-sm mb-6">Prioridad: iluminación, composición y especies visuales.</p>
+                    <ul class="space-y-3 text-emerald-100/90 text-sm italic">
+                        <li>• Sierra Norte</li>
+                        <li>• Pluma Hidalgo</li>
+                        <li>• Chacahua</li>
+                        <li>• Costa Abierta</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Advertencia Estratégica -->
+            <div class="mt-20 bg-emerald-900 p-10 rounded-3xl flex flex-col md:flex-row items-center gap-8 border border-emerald-700 shadow-2xl">
+                <div class="text-emerald-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-emerald-400 uppercase tracking-widest text-xs font-bold mb-2">Nota del Especialista</h4>
+                    <p class="text-xl italic font-light mb-4 text-emerald-50">"Demasiados sitios = menor profundidad. Cada región extra requiere al menos un día adicional para garantizar una experiencia ética y de calidad."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página y contacto -->
+    <footer class="py-24 px-6 border-t border-emerald-100 bg-stone-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+            <div>
+                <h2 class="text-4xl mb-6 text-emerald-900">Planifica tu expedición</h2>
+                <p class="text-emerald-700/70 max-w-md">Para tours personalizados o información técnica sobre biodiversidad, escríbenos directamente por WhatsApp.</p>
+            </div>
+            <div class="flex flex-col space-y-4 w-full md:w-auto">
+                <!-- Botón de WhatsApp Principal -->
+                <a href="https://wa.me/tu_numero" target="_blank" class="bg-emerald-800 text-white px-12 py-4 rounded-full text-center hover:bg-emerald-900 transition shadow-xl flex items-center justify-center font-semibold">
+                    <svg class="w-5 h-5 mr-3 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.01 0-3.987-.508-5.723-1.47l-6.261 1.644zm6.46-4.015c1.455.863 3.012 1.319 4.606 1.319 4.966 0 9.013-4.047 9.013-9.013 0-2.405-.937-4.667-2.637-6.368s-3.963-2.636-6.368-2.636c-4.965 0-9.012 4.047-9.012 9.012 0 1.678.463 3.32 1.34 4.774l-.887 3.24 3.322-.871c.028.006.056.012.083.018zm11.332-6.505c-.247-.124-1.463-.721-1.689-.804-.226-.083-.391-.124-.555.124s-.638.804-.782.969-.288.185-.535.062c-.247-.124-1.041-.383-1.983-1.223-.733-.655-1.228-1.463-1.371-1.71-.144-.247-.015-.381.109-.504.112-.111.247-.288.37-.432.124-.144.165-.247.247-.412.083-.165.042-.309-.021-.432s-.555-1.339-.761-1.833c-.2-.482-.403-.413-.555-.42l-.473-.01c-.165 0-.432.062-.658.309s-.865.845-.865 2.06 1.483 2.41 1.689 2.698c.206.288 2.92 4.458 7.073 6.252.988.427 1.758.682 2.359.872.992.314 1.895.269 2.608.163.795-.119 1.463-.597 1.689-1.235s.226-1.174.157-1.235c-.069-.062-.262-.144-.509-.268z"/>
+                    </svg>
+                    Chat en Vivo
+                </a>
+                <p class="text-xs text-emerald-400 text-center uppercase tracking-widest">Atención inmediata personalizada</p>
+            </div>
+        </div>
+        <div class="mt-20 pt-8 border-t border-emerald-100 text-center text-emerald-300 text-xs italic">
+            © 2024 Experiencias Wildlife | Tours & Expediciones Especializadas.
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours Premium de Fotografía de Aves · Oaxaca</title>
+    <!-- Tailwind CSS para la navegación -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* VARIABLES DE DISEÑO PREMIUM (Compatibles con Tailwind) */
+        :root {
+            --primary-color: #2D4033; 
+            --accent-color: #8BA88E;  
+            --whatsapp-color: #25D366; 
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #F9FBFA;
+            --white: #FFFFFF;
+            --max-width: 1100px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Estilos personalizados para complementar Tailwind */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(45, 64, 51, 0.4), rgba(45, 64, 51, 0.4)), 
+                        url('https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&q=80&w=2069') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .btn-custom {
+            display: inline-block;
+            padding: 18px 36px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .section-padding { padding: 80px 0; }
+
+        .tag {
+            background: #f0f3f1;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            margin-right: 10px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .dest-img img {
+            box-shadow: 15px 15px 0px var(--accent-color);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="pt-16"> <!-- Padding top para compensar el header fixed -->
+
+    <!-- Navegación -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Título que redirige a la sección principal de Wildlife -->
+            <a href="index.html#experiencias" class="text-2xl font-bold tracking-tight text-emerald-900 uppercase hover:text-emerald-700 transition">
+                EXPERIENCIAS<span class="font-light text-stone-500">WILDLIFE</span>
+            </a>
+            
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <!-- Botón de regreso a Inicio -->
+                <a href="index.html" class="text-sm font-medium uppercase tracking-widest text-stone-600 hover:text-emerald-700 transition flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Inicio
+                </a>
+                <!-- Botón de WhatsApp en el Header -->
+                <a href="https://wa.me/5219511234567" target="_blank" class="bg-emerald-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 transition flex items-center shadow-md">
+                    <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.555-5.332 11.887-11.888 11.887-2.01 0-3.987-.508-5.723-1.47l-6.261 1.644zm6.46-4.015c1.455.863 3.012 1.319 4.606 1.319 4.966 0 9.013-4.047 9.013-9.013 0-2.405-.937-4.667-2.637-6.368s-3.963-2.636-6.368-2.636c-4.965 0-9.012 4.047-9.012 9.012 0 1.678.463 3.32 1.34 4.774l-.887 3.24 3.322-.871c.028.006.056.012.083.018zm11.332-6.505c-.247-.124-1.463-.721-1.689-.804-.226-.083-.391-.124-.555.124s-.638.804-.782.969-.288.185-.535.062c-.247-.124-1.041-.383-1.983-1.223-.733-.655-1.228-1.463-1.371-1.71-.144-.247-.015-.381.109-.504.112-.111.247-.288.37-.432.124-.144.165-.247.247-.412.083-.165.042-.309-.021-.432s-.555-1.339-.761-1.833c-.2-.482-.403-.413-.555-.42l-.473-.01c-.165 0-.432.062-.658.309s-.865.845-.865 2.06 1.483 2.41 1.689 2.698c.206.288 2.92 4.458 7.073 6.252.988.427 1.758.682 2.359.872.992.314 1.895.269 2.608.163.795-.119 1.463-.597 1.689-1.235s.226-1.174.157-1.235c-.069-.062-.262-.144-.509-.268z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-white text-4xl md:text-6xl font-bold mb-6 tracking-tight">Tours Premium de Fotografía · Oaxaca</h1>
+            <p class="text-xl font-light mb-10 opacity-90">Expediciones de 2–3 días diseñadas para capturar la esencia de las aves más raras de México.</p>
+            <a href="#destinos" class="btn-custom">Explorar Destinos</a>
+        </div>
+    </header>
+
+    <!-- ESTRUCTURA PREMIUM RESUMEN -->
+    <section class="bg-stone-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="text-emerald-400 text-xs uppercase tracking-widest mb-2">Duración</p>
+                <p class="text-lg font-medium">2–3 Días / Pernocta</p>
+            </div>
+            <div>
+                <p class="text-emerald-400 text-xs uppercase tracking-widest mb-2">Grupos</p>
+                <p class="text-lg font-medium">6–8 Personas Máx.</p>
+            </div>
+            <div>
+                <p class="text-emerald-400 text-xs uppercase tracking-widest mb-2">Enfoque</p>
+                <p class="text-lg font-medium">Tiempos Largos / Hides</p>
+            </div>
+            <div>
+                <p class="text-emerald-400 text-xs uppercase tracking-widest mb-2">Guía</p>
+                <p class="text-lg font-medium">Principal + Local</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTINOS -->
+    <section id="destinos" class="section-padding">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl font-bold text-stone-900 mb-4">Portafolio de Destinos Premium</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">Selección estratégica de hábitats con curaduría de 5–8 especies ancla por ruta.</p>
+            </div>
+
+            <div class="space-y-24">
+                <!-- 1. Sierra Norte -->
+                <div class="flex flex-col md:flex-row gap-12 items-start">
+                    <div class="flex-1 dest-img">
+                        <img src="https://images.unsplash.com/photo-1552410260-0fd9b577afa6?auto=format&fit=crop&q=80&w=800" class="w-full h-96 object-cover" alt="Sierra Norte">
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-emerald-700 font-bold uppercase text-xs tracking-widest">Bosque Mesófilo Profundo</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Sierra Norte</h3>
+                        <p class="text-stone-600 mb-6">Fotografía de aves de bosque nublado con luz suave constante y perchas naturales preparadas.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-sm font-bold uppercase mb-3 text-stone-400 border-b pb-1">Especies Ancla</h4>
+                            <div class="tag-list">
+                                <span class="tag">Chipe rojizo</span><span class="tag">Gorrión serrano</span><span class="tag">Colibríes</span><span class="tag">Búhos serranos</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-100 p-4 rounded text-sm">
+                            <p><strong>Alojamiento:</strong> Cabañas comunitarias mejoradas o Eco-lodge.</p>
+                            <p class="mt-1"><strong>Ideal para:</strong> Fotógrafos intermedios y buscadores de endémicos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Chimalapas -->
+                <div class="flex flex-col md:flex-row-reverse gap-12 items-start">
+                    <div class="flex-1 dest-img">
+                        <img src="https://images.unsplash.com/photo-1518173946687-a4c8a98039f5?auto=format&fit=crop&q=80&w=800" class="w-full h-96 object-cover" alt="Chimalapas">
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-emerald-700 font-bold uppercase text-xs tracking-widest">Selva Alta Primaria / Rarezas</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Chimalapas</h3>
+                        <p class="text-stone-600 mb-6">Expedición a selva poco intervenida para capturar especies raras con un fuerte contexto de conservación.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-sm font-bold uppercase mb-3 text-stone-400 border-b pb-1">Especies Ancla</h4>
+                            <div class="tag-list">
+                                <span class="tag">Tinamú</span><span class="tag">Pavón</span><span class="tag">Rapaces de selva</span><span class="tag">Tucanes</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-4 text-sm text-orange-800">
+                            <strong>⚠️ Riesgo:</strong> Logística compleja y acceso remoto. Para fotógrafos experimentados.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Costa -->
+                <div class="flex flex-col md:flex-row gap-12 items-start">
+                    <div class="flex-1 dest-img">
+                        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800" class="w-full h-96 object-cover" alt="Costa">
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-emerald-700 font-bold uppercase text-xs tracking-widest">Manglares y Acción</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Costa de Oaxaca</h3>
+                        <p class="text-stone-600 mb-6">Enfoque en comportamiento, vuelo y acción con fondos limpios y luz dorada de amanecer.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-sm font-bold uppercase mb-3 text-stone-400 border-b pb-1">Especies Ancla</h4>
+                            <div class="tag-list">
+                                <span class="tag">Garzas e Ibis</span><span class="tag">Águila pescadora</span><span class="tag">Espátulas</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-100 p-4 rounded text-sm">
+                            <p><strong>Alojamiento:</strong> Hotel Boutique o Eco-lodge costero.</p>
+                            <p class="mt-1"><strong>Ideal para:</strong> Fotógrafos de acción y creadores de contenido.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Valles Centrales -->
+                <div class="flex flex-col md:flex-row-reverse gap-12 items-start">
+                    <div class="flex-1 dest-img">
+                        <img src="https://images.unsplash.com/photo-1589182397057-b163ce111f8a?auto=format&fit=crop&q=80&w=800" class="w-full h-96 object-cover" alt="Valles Centrales">
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-emerald-700 font-bold uppercase text-xs tracking-widest">Semiárido / Storytelling</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Valles Centrales</h3>
+                        <p class="text-stone-600 mb-6">Fotografía de especies muy localizadas en perchas abiertas para un fácil control de encuadre.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-sm font-bold uppercase mb-3 text-stone-400 border-b pb-1">Especies Ancla</h4>
+                            <div class="tag-list">
+                                <span class="tag">Colibrí de Oaxaca</span><span class="tag">Chipe de rabadilla amarilla</span><span class="tag">Matraca</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-100 p-4 rounded text-sm">
+                            <p><strong>Alojamiento:</strong> Hotel Boutique en Ciudad de Oaxaca.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Sierra Sur -->
+                <div class="flex flex-col md:flex-row gap-12 items-start">
+                    <div class="flex-1 dest-img">
+                        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=800" class="w-full h-96 object-cover" alt="Sierra Sur">
+                    </div>
+                    <div class="flex-1">
+                        <span class="text-emerald-700 font-bold uppercase text-xs tracking-widest">Exploración / Baja Presión</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Sierra Sur</h3>
+                        <p class="text-stone-600 mb-6">Descubrimiento de nuevos puntos fotográficos en bosques poco visitados. Auténtica sensación de expedición.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="text-sm font-bold uppercase mb-3 text-stone-400 border-b pb-1">Especies Ancla</h4>
+                            <div class="tag-list">
+                                <span class="tag">Tangaras</span><span class="tag">Rapaces de montaña</span><span class="tag">Colibríes raros</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-100 p-4 rounded text-sm">
+                            <p><strong>Alojamiento:</strong> Posadas rurales de buen nivel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-50 border-t border-stone-200 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-xl font-bold text-emerald-900 uppercase mb-4 tracking-tighter">EXPERIENCIAS<span class="font-light text-stone-500">WILDLIFE</span></h2>
+            <p class="text-stone-500 text-sm mb-8 italic">Fotografía ética para la conservación de la biodiversidad de Oaxaca.</p>
+            
+            <a href="https://wa.me/5219511234567" target="_blank" class="inline-flex items-center bg-emerald-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-emerald-700 transition">
+                Solicitar PDF de Itinerarios
+            </a>
+            
+            <p class="mt-12 text-xs text-stone-400 uppercase tracking-widest">&copy; 2024 Expediciones Oaxaca. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

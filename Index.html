@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiencias Wildlife. Vive, aprende y conecta con la naturaleza</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #1a2e23;
+            --secondary-color: #2E8B57;
+            --accent-color: #D3A429;
+            --light-color: #f4f4f4;
+            --white-color: #ffffff;
+            --font-main: 'Open Sans', sans-serif;
+            --font-headings: 'Montserrat', sans-serif;
+            --nav-height: 70px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); line-height: 1.6; color: #333; background-color: var(--white-color); }
+        h1, h2, h3 { font-family: var(--font-headings); font-weight: 700; margin-bottom: 1rem; }
+        h2 { font-size: 2.5rem; color: var(--primary-color); text-align: center; margin-bottom: 3rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 6rem 0; }
+        .section-bg { background-color: var(--light-color); }
+
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-family: var(--font-headings);
+            border: none;
+        }
+        .btn-primary { background-color: var(--secondary-color); color: white; }
+        .btn-primary:hover { background-color: #256d44; transform: translateY(-2px); }
+        .btn-info { background-color: var(--primary-color); color: white; margin-top: auto; }
+        .btn-info:hover { background-color: var(--secondary-color); }
+        .btn-whatsapp { background-color: #25D366; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 2rem; width: fit-content; margin-left: auto; margin-right: auto; }
+
+        /* NAVEGACIÓN */
+        #main-nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(26, 46, 35, 0.95); padding: 0.8rem 0; height: var(--nav-height);
+            display: flex; align-items: center;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; padding: 0 2rem; margin: auto; }
+        .logo { font-family: var(--font-headings); font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; cursor: pointer; }
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin: 0 1.2rem; }
+        .nav-links a { color: white; font-weight: 600; text-decoration: none; font-size: 0.95rem; cursor: pointer; }
+
+        /* CONTROL DE PÁGINAS */
+        .page { display: none; padding-top: var(--nav-height); }
+        .page.active { display: block; }
+
+        /* HERO */
+        #hero {
+            height: 100vh; display: flex; justify-content: center; align-items: center;
+            text-align: center; color: white;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1600') center/cover;
+        }
+        .hero-content h1 { font-size: 4rem; max-width: 800px; margin-bottom: 0.5rem; }
+        .hero-tagline { font-size: 1.5rem; margin-bottom: 2rem; font-weight: 400; font-family: var(--font-headings); opacity: 0.9; }
+
+        /* TARJETAS DE SERVICIOS */
+        .tours-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+        .card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-img { height: 250px; width: 100%; object-fit: cover; background-color: #ddd; }
+        .card-body { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-info { list-style: none; margin: 1rem 0; font-size: 0.9rem; background: #f9f9f9; padding: 1rem; border-radius: 8px; }
+        .card-info li { margin-bottom: 0.4rem; display: flex; align-items: center; }
+        .card-info i { color: var(--secondary-color); margin-right: 0.8rem; width: 15px; }
+
+        /* GALERÍA */
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .gallery-item { height: 250px; overflow: hidden; border-radius: 8px; background-color: #eee; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .gallery-item img:hover { transform: scale(1.05); }
+
+        /* QUIENES SOMOS */
+        .about-grid { display: flex; gap: 3rem; align-items: flex-start; }
+        .about-image { flex: 1; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: sticky; top: 100px; }
+        .about-image img { width: 100%; display: block; }
+        .about-content { flex: 1.5; }
+        .about-content p { margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .highlight-box { font-weight: 700; border-left: 4px solid var(--secondary-color); padding-left: 1.5rem; margin: 2.5rem 0; font-style: italic; color: var(--primary-color); }
+
+        /* PÁGINAS DE DETALLES */
+        .detail-header { background-color: var(--primary-color); color: white; padding: 4rem 0; text-align: center; }
+        .detail-content { padding: 4rem 0; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: var(--secondary-color); font-weight: 700; text-decoration: none; cursor: pointer; }
+        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .detail-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* CONTACTO */
+        .social-icons { display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem; }
+        .social-icons a { color: var(--primary-color); font-size: 2rem; transition: 0.3s; }
+        .social-icons a:hover { color: var(--secondary-color); transform: translateY(-3px); }
+
+        /* FOOTER */
+        footer { background: var(--primary-color); color: white; padding: 2rem 0; text-align: center; }
+
+        @media(max-width: 992px) {
+            .tours-grid, .detail-grid, .about-grid { grid-template-columns: 1fr; flex-direction: column; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-tagline { font-size: 1.1rem; }
+            .about-image { position: static; margin-bottom: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-nav">
+        <div class="nav-container">
+            <a onclick="showPage('home')" class="logo"><i class="fa-solid fa-leaf"></i> Experiencias Wildlife</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a onclick="showPage('home')">Inicio</a></li>
+                    <li><a href="#tours" onclick="showPage('home')">Servicios</a></li>
+                    <li><a href="#about" onclick="showPage('home')">Conócenos</a></li>
+                    <li><a href="#contact" onclick="showPage('home')">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PÁGINA PRINCIPAL -->
+    <div id="home-page" class="page active">
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Vive, aprende y conecta con la naturaleza</h1>
+                <p class="hero-tagline">Descubre la naturaleza a través de nuestros ojos.</p>
+                <a href="#tours" class="btn btn-primary">Nuestros Servicios</a>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section id="tours">
+            <div class="container">
+                <h2>Nuestros Paquetes</h2>
+                <div class="tours-grid">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=600" class="card-img" alt="Tours Exprés">
+                        <div class="card-body">
+                            <h3>Tours Exprés</h3>
+                            <p>Cercanos a ciudades/hoteles. Observación focalizada en sitios cercanos.</p>
+                            <ul class="card-info">
+                                <li><i class="fa-solid fa-clock"></i> 3–5 Horas</li>
+                                <li><i class="fa-solid fa-person-walking"></i> Dificultad: Baja</li>
+                            </ul>
+                            <a href="tours_expres.html" class="btn btn-info">Más información</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600" class="card-img" alt="Día Completo">
+                        <div class="card-body">
+                            <h3>Día Completo</h3>
+                            <p>Parques y Reservas. Inmersiones profundas en ecosistemas clave.</p>
+                            <ul class="card-info">
+                                <li><i class="fa-solid fa-clock"></i> 8–12 Horas</li>
+                                <li><i class="fa-solid fa-person-hiking"></i> Dificultad: Media</li>
+                            </ul>
+                            <a href="tour_completo.html" class="btn btn-info">Más información</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=600" class="card-img" alt="Premium">
+                        <div class="card-body">
+                            <h3>Premium</h3>
+                            <p>Destinos Exclusivos. Experiencias con alojamiento de alto nivel.</p>
+                            <ul class="card-info">
+                                <li><i class="fa-solid fa-moon"></i> 2–3 días</li>
+                                <li><i class="fa-solid fa-camera"></i> Enfoque: Fotografía</li>
+                            </ul>
+                            <a href="tour_premium.html" class="btn btn-info">Más información</a>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" class="card-img" alt="Expediciones">
+                        <div class="card-body">
+                            <h3>Expediciones</h3>
+                            <p>Regiones Remotas. Viajes de investigación y ecoturismo profundo.</p>
+                            <ul class="card-info">
+                                <li><i class="fa-solid fa-calendar-days"></i> 5–10 días</li>
+                                <li><i class="fa-solid fa-mountain-sun"></i> Dificultad: Avanzada</li>
+                            </ul>
+                            <a href="tour_expediciones.html" class="btn btn-info">Más información</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERÍA -->
+        <section id="gallery" class="section-bg">
+            <div class="container">
+                <h2>Galería Wildlife</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1547464010-85f0967523f0?q=80&w=400" alt="Fauna 1"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1594911762299-a837e289c09c?q=80&w=400" alt="Fauna 2"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551699923-a18ac93998b3?q=80&w=400" alt="Fauna 3"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1510414995576-f343e74c83c2?q=80&w=400" alt="Fauna 4"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?q=80&w=400" alt="Fauna 5"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1439853949127-fa647821eba0?q=80&w=400" alt="Fauna 6"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=400" alt="Fauna 7"></div>
+                    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=400" alt="Fauna 8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONÓCENOS -->
+        <section id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800" alt="Sobre nosotros">
+                    </div>
+                    <div class="about-content">
+                        <h2>Quiénes somos</h2>
+                        <p><strong>Experiencias Wildlife</strong> es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental, con operaciones en <strong>Oaxaca y la Península de Yucatán</strong>.</p>
+                        <p>Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas y responsables en contacto directo con la vida silvestre. Diseñamos cada recorrido, curso y producto con un enfoque técnico y ético, priorizando el respeto por los ecosistemas y la correcta interpretación del entorno natural.</p>
+                        
+                        <p>Por eso, nuestras experiencias no se limitan a la observación: fomentan la comprensión de los procesos ecológicos, el valor de las especies y la importancia de su protección.</p>
+                        <p>Ofrecemos experiencias guiadas, servicios de fotografía, material educativo y productos inspirados en la naturaleza, dirigidos tanto a personas que buscan una conexión genuina con el entorno como a proyectos que requieren respaldo técnico y conocimiento especializado.</p>
+
+                        <div class="highlight-box">
+                            En Experiencias Wildlife, creemos que conocer la biodiversidad es el primer paso para conservarla.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contact" class="section-bg">
+            <div class="container" style="text-align: center;">
+                <h2>Contacto y Reserva</h2>
+                <div class="social-icons">
+                    <a href="https://facebook.com/DanielJuarez" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/experiencias_wildlife" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@daniiwildlife" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p style="font-size: 1.2rem;">experienciaswildlife@gmail.com</p>
+                <p>Oaxaca, México</p>
+                
+                <a href="https://wa.me/529514069368?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20las%20Experiencias%20Wildlife" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Envíanos un WhatsApp
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- PÁGINAS DE DETALLE (SIMULADAS) - SE MANTIENEN POR RETROCOMPATIBILIDAD O FALLBACK -->
+    <div id="expres-page" class="page">
+        <header class="detail-header">
+            <div class="container"><h1>Tours Exprés</h1></div>
+        </header>
+        <div class="detail-content">
+            <div class="container">
+                <a onclick="showPage('home')" class="back-link">← Volver</a>
+                <div class="detail-grid">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800" class="detail-img" alt="Exprés">
+                    <div>
+                        <h3>Cercanos a ciudades/hoteles</h3>
+                        <p>Ideal para una conexión rápida. Observación focalizada en sitios estratégicos sin alejarse de la civilización.</p>
+                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Tours%20Exprés" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="completo-page" class="page">
+        <header class="detail-header">
+            <div class="container"><h1>Día Completo</h1></div>
+        </header>
+        <div class="detail-content">
+            <div class="container">
+                <a onclick="showPage('home')" class="back-link">← Volver</a>
+                <div class="detail-grid">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800" class="detail-img" alt="Completo">
+                    <div>
+                        <h3>Inmersión Profunda</h3>
+                        <p>Explora parques y reservas clave con transporte y alimentos incluidos. Máxima probabilidad de avistamientos.</p>
+                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Tours%20de%20Día%20Completo" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="premium-page" class="page">
+        <header class="detail-header">
+            <div class="container"><h1>Premium</h1></div>
+        </header>
+        <div class="detail-content">
+            <div class="container">
+                <a onclick="showPage('home')" class="back-link">← Volver</a>
+                <div class="detail-grid">
+                    <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=800" class="detail-img" alt="Premium">
+                    <div>
+                        <h3>Experiencia Exclusiva</h3>
+                        <p>Alojamiento de alto nivel y guías expertos para un nicho específico, como la fotografía de fauna silvestre.</p>
+                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Paquetes%20Premium" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="expediciones-page" class="page">
+        <header class="detail-header">
+            <div class="container"><h1>Expediciones</h1></div>
+        </header>
+        <div class="detail-content">
+            <div class="container">
+                <a onclick="showPage('home')" class="back-link">← Volver</a>
+                <div class="detail-grid">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800" class="detail-img" alt="Expediciones">
+                    <div>
+                        <h3>Aventura Remota</h3>
+                        <p>Viajes de investigación y ecoturismo a áreas remotas con énfasis en la educación y conservación ambiental.</p>
+                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Expediciones" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Experiencias Wildlife. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.classList.remove('active'));
+            
+            const target = document.getElementById(pageId + '-page');
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+
+</body>
+</html>
