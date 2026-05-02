@@ -31,6 +31,25 @@
         section { padding: 6rem 0; }
         .section-bg { background-color: var(--light-color); }
 
+        /* Estilo para el botón de idioma */
+        .lang-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-headings);
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            margin-left: 1rem;
+        }
+        .lang-btn:hover { background: var(--secondary-color); border-color: var(--secondary-color); }
+
+        /* Suavizado de cambio de idioma */
+        [data-key] { transition: opacity 0.2s ease-in-out; }
+
         /* BOTONES */
         .btn {
             display: inline-block;
@@ -58,12 +77,12 @@
         }
         .nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; padding: 0 2rem; margin: auto; }
         .logo { font-family: var(--font-headings); font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; cursor: pointer; }
-        .nav-links { list-style: none; display: flex; }
+        .nav-links { list-style: none; display: flex; align-items: center; }
         .nav-links li { margin: 0 1.2rem; }
         .nav-links a { color: white; font-weight: 600; text-decoration: none; font-size: 0.95rem; cursor: pointer; }
 
         /* CONTROL DE PÁGINAS */
-        .page { display: none; padding-top: var(--nav-height); }
+        .page { display: none; padding-top: var(--nav-height); } 
         .page.active { display: block; }
 
         /* HERO */
@@ -78,7 +97,7 @@
         /* TARJETAS DE SERVICIOS */
         .tours-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         .card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
+        .card-hover:hover { transform: translateY(-5px); }
         .card-img { height: 250px; width: 100%; object-fit: cover; background-color: #ddd; }
         .card-body { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
         .card-info { list-style: none; margin: 1rem 0; font-size: 0.9rem; background: #f9f9f9; padding: 1rem; border-radius: 8px; }
@@ -99,18 +118,6 @@
         .about-content p { margin-bottom: 1.2rem; font-size: 1.05rem; }
         .highlight-box { font-weight: 700; border-left: 4px solid var(--secondary-color); padding-left: 1.5rem; margin: 2.5rem 0; font-style: italic; color: var(--primary-color); }
 
-        /* PÁGINAS DE DETALLES */
-        .detail-header { background-color: var(--primary-color); color: white; padding: 4rem 0; text-align: center; }
-        .detail-content { padding: 4rem 0; }
-        .back-link { display: inline-block; margin-bottom: 2rem; color: var(--secondary-color); font-weight: 700; text-decoration: none; cursor: pointer; }
-        .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .detail-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-
-        /* CONTACTO */
-        .social-icons { display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem; }
-        .social-icons a { color: var(--primary-color); font-size: 2rem; transition: 0.3s; }
-        .social-icons a:hover { color: var(--secondary-color); transform: translateY(-3px); }
-
         /* FOOTER */
         footer { background: var(--primary-color); color: white; padding: 2rem 0; text-align: center; }
 
@@ -120,6 +127,7 @@
             .hero-content h1 { font-size: 2.5rem; }
             .hero-tagline { font-size: 1.1rem; }
             .about-image { position: static; margin-bottom: 2rem; }
+            .nav-links li { margin: 0 0.5rem; }
         }
     </style>
 </head>
@@ -127,92 +135,94 @@
 
     <header id="main-nav">
         <div class="nav-container">
-            <a onclick="showPage('home')" class="logo"><i class="fa-solid fa-leaf"></i> Experiencias Wildlife</a>
+            <a onclick="showPage('home')" class="logo"><i class="fa-solid fa-leaf"></i> <span data-key="navLogo">Experiencias Wildlife</span></a>
             <nav>
                 <ul class="nav-links">
-                    <li><a onclick="showPage('home')">Inicio</a></li>
-                    <li><a href="#tours" onclick="showPage('home')">Servicios</a></li>
-                    <li><a href="#about" onclick="showPage('home')">Conócenos</a></li>
-                    <li><a href="#contact" onclick="showPage('home')">Contacto</a></li>
+                    <li><a onclick="showPage('home')" data-key="navHome">Inicio</a></li>
+                    <li><a href="#tours" onclick="showPage('home')" data-key="navServices">Servicios</a></li>
+                    <li><a href="#about" onclick="showPage('home')" data-key="navAbout">Conócenos</a></li>
+                    <li><a href="#contact" onclick="showPage('home')" data-key="navContact">Contacto</a></li>
+                    <li><button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle">EN</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- PÁGINA PRINCIPAL -->
     <div id="home-page" class="page active">
         <section id="hero">
             <div class="hero-content">
-                <h1>Vive, aprende y conecta con la naturaleza</h1>
-                <p class="hero-tagline">Descubre la naturaleza a través de nuestros ojos.</p>
-                <a href="#tours" class="btn btn-primary">Nuestros Servicios</a>
+                <h1 data-key="heroTitle">Vive, aprende y conecta con la naturaleza</h1>
+                <p class="hero-tagline" data-key="heroSub">Descubre la naturaleza a través de nuestros ojos.</p>
+                <a href="#tours" class="btn btn-primary" data-key="heroBtn">Nuestros Servicios</a>
             </div>
         </section>
 
-        <!-- SERVICIOS -->
         <section id="tours">
             <div class="container">
-                <h2>Nuestros Paquetes</h2>
+                <h2 data-key="toursTitle">Nuestros Paquetes</h2>
                 <div class="tours-grid">
-                    <div class="card">
+                    <!-- Tour 1 -->
+                    <div class="card card-hover">
                         <img src="Inicio/Tour_expres.png" class="card-img" alt="Tours Exprés">
                         <div class="card-body">
-                            <h3>Tours Exprés</h3>
-                            <p>Cercanos a ciudades/hoteles. Observación focalizada en sitios cercanos.</p>
+                            <h3 data-key="tour1Name">Tours Exprés</h3>
+                            <p data-key="tour1Desc">Cercanos a ciudades/hoteles. Observación focalizada en sitios cercanos.</p>
                             <ul class="card-info">
-                                <li><i class="fa-solid fa-clock"></i> 3–5 Horas</li>
-                                <li><i class="fa-solid fa-person-walking"></i> Dificultad: Baja</li>
+                                <li><i class="fa-solid fa-clock"></i> <span data-key="tour1Time">3–5 Horas</span></li>
+                                <li><i class="fa-solid fa-person-walking"></i> <span data-key="tour1Diff">Dificultad: Baja</span></li>
                             </ul>
-                            <a href="tours_expres.html" class="btn btn-info">Más información</a>
+                            <a href="#" class="btn btn-info" data-key="moreInfo">Más información</a>
                         </div>
                     </div>
 
-                    <div class="card">
+                    <!-- Tour 2 -->
+                    <div class="card card-hover">
                         <img src="Inicio/Tour_completo.png" class="card-img" alt="Día Completo">
                         <div class="card-body">
-                            <h3>Día Completo</h3>
-                            <p>Parques y Reservas. Inmersiones profundas en ecosistemas clave.</p>
+                            <h3 data-key="tour2Name">Día Completo</h3>
+                            <p data-key="tour2Desc">Parques y Reservas. Inmersiones profundas en ecosistemas clave.</p>
                             <ul class="card-info">
-                                <li><i class="fa-solid fa-clock"></i> 8–12 Horas</li>
-                                <li><i class="fa-solid fa-person-hiking"></i> Dificultad: Media</li>
+                                <li><i class="fa-solid fa-clock"></i> <span data-key="tour2Time">8–12 Horas</span></li>
+                                <li><i class="fa-solid fa-person-hiking"></i> <span data-key="tour2Diff">Dificultad: Media</span></li>
                             </ul>
-                            <a href="tour_completo.html" class="btn btn-info">Más información</a>
+                            <a href="#" class="btn btn-info" data-key="moreInfo">Más información</a>
                         </div>
                     </div>
 
-                    <div class="card">
+                    <!-- Tour 3 -->
+                    <div class="card card-hover">
                         <img src="Inicio/Tour_premium.png" class="card-img" alt="Premium">
                         <div class="card-body">
-                            <h3>Premium</h3>
-                            <p>Destinos Exclusivos. Experiencias con alojamiento de alto nivel.</p>
+                            <h3 data-key="tour3Name">Premium</h3>
+                            <p data-key="tour3Desc">Destinos Exclusivos. Experiencias con alojamiento de alto nivel.</p>
                             <ul class="card-info">
-                                <li><i class="fa-solid fa-moon"></i> 2–3 días</li>
-                                <li><i class="fa-solid fa-camera"></i> Enfoque: Fotografía</li>
+                                <li><i class="fa-solid fa-moon"></i> <span data-key="tour3Time">2–3 días</span></li>
+                                <li><i class="fa-solid fa-camera"></i> <span data-key="tour3Focus">Enfoque: Fotografía</span></li>
                             </ul>
-                            <a href="tour_premium.html" class="btn btn-info">Más información</a>
+                            <a href="#" class="btn btn-info" data-key="moreInfo">Más información</a>
                         </div>
                     </div>
 
-                    <div class="card">
+                    <!-- Tour 4 -->
+                    <div class="card card-hover">
                         <img src="Inicio/Expediciones.png" class="card-img" alt="Expediciones">
                         <div class="card-body">
-                            <h3>Expediciones</h3>
-                            <p>Regiones Remotas. Viajes de investigación y ecoturismo profundo.</p>
+                            <h3 data-key="tour4Name">Expediciones</h3>
+                            <p data-key="tour4Desc">Regiones Remotas. Viajes de investigación y ecoturismo profundo.</p>
                             <ul class="card-info">
-                                <li><i class="fa-solid fa-calendar-days"></i> 5–10 días</li>
-                                <li><i class="fa-solid fa-mountain-sun"></i> Dificultad: Avanzada</li>
+                                <li><i class="fa-solid fa-calendar-days"></i> <span data-key="tour4Time">5–10 días</span></li>
+                                <li><i class="fa-solid fa-mountain-sun"></i> <span data-key="tour4Diff">Dificultad: Avanzada</span></li>
                             </ul>
-                            <a href="tour_expediciones.html" class="btn btn-info">Más información</a>
+                            <a href="#" class="btn btn-info" data-key="moreInfo">Más información</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- GALERÍA -->
         <section id="gallery" class="section-bg">
             <div class="container">
-                <h2>Galería Wildlife</h2>
+                <h2 data-key="galleryTitle">Galería Wildlife</h2>
                 <div class="gallery-grid">
                     <div class="gallery-item"><img src="Inicio/Galeria_1.png" alt="Fauna 1"></div>
                     <div class="gallery-item"><img src="Inicio/Galeria_2.png" alt="Fauna 2"></div>
@@ -226,7 +236,6 @@
             </div>
         </section>
 
-        <!-- CONÓCENOS -->
         <section id="about">
             <div class="container">
                 <div class="about-grid">
@@ -234,14 +243,11 @@
                         <img src="Inicio/Nosotros.png" alt="Sobre nosotros">
                     </div>
                     <div class="about-content">
-                        <h2>Quiénes somos</h2>
-                        <p><strong>Experiencias Wildlife</strong> es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental, con operaciones en <strong>Oaxaca y la Península de Yucatán</strong>.</p>
-                        <p>Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas y responsables en contacto directo con la vida silvestre. Diseñamos cada recorrido, curso y producto con un enfoque técnico y ético, priorizando el respeto por los ecosistemas y la correcta interpretación del entorno natural.</p>
-                        
-                        <p>Por eso, nuestras experiencias no se limitan a la observación: fomentan la comprensión de los procesos ecológicos, el valor de las especies y la importancia de su protección.</p>
-                        <p>Ofrecemos experiencias guiadas, servicios de fotografía, material educativo y productos inspirados en la naturaleza, dirigidos tanto a personas que buscan una conexión genuina con el entorno como a proyectos que requieren respaldo técnico y conocimiento especializado.</p>
-
-                        <div class="highlight-box">
+                        <h2 data-key="aboutTitle">Quiénes somos</h2>
+                        <p data-key="aboutP1"><strong>Experiencias Wildlife</strong> es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental, con operaciones en <strong>Oaxaca.</strong>.</p>
+                        <p data-key="aboutP2">Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas y responsables en contacto directo con la vida silvestre.</p>
+                        <p data-key="aboutP3">Ofrecemos experiencias guiadas, servicios de fotografía, material educativo y productos inspirados en la naturaleza, dirigidos tanto a personas que buscan una conexión genuina con el entorno como a proyectos técnicos.</p>
+                        <div class="highlight-box" data-key="aboutHighlight">
                             En Experiencias Wildlife, creemos que conocer la biodiversidad es el primer paso para conservarla.
                         </div>
                     </div>
@@ -249,107 +255,133 @@
             </div>
         </section>
 
-        <!-- CONTACTO -->
         <section id="contact" class="section-bg">
             <div class="container" style="text-align: center;">
-                <h2>Contacto y Reserva</h2>
+                <h2 data-key="contactTitle">Contacto y Reserva</h2>
                 <div class="social-icons">
                     <a href="https://facebook.com/DanielJuarez" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://instagram.com/experiencias_wildlife" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://youtube.com/@daniiwildlife" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
                 <p style="font-size: 1.2rem;">experienciaswildlife@gmail.com</p>
-                <p>Oaxaca, México</p>
-                
-                <a href="https://wa.me/529514069368?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20las%20Experiencias%20Wildlife" class="btn btn-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Envíanos un WhatsApp
+                <p data-key="location">Oaxaca, México</p>
+                <a href="https://wa.me/529514069368?text=Hola" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> <span data-key="whatsapp">Envíanos un WhatsApp</span>
                 </a>
             </div>
         </section>
     </div>
 
-    <!-- PÁGINAS DE DETALLE (SIMULADAS) - SE MANTIENEN POR RETROCOMPATIBILIDAD O FALLBACK -->
-    <div id="expres-page" class="page">
-        <header class="detail-header">
-            <div class="container"><h1>Tours Exprés</h1></div>
-        </header>
-        <div class="detail-content">
-            <div class="container">
-                <a onclick="showPage('home')" class="back-link">← Volver</a>
-                <div class="detail-grid">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800" class="detail-img" alt="Exprés">
-                    <div>
-                        <h3>Cercanos a ciudades/hoteles</h3>
-                        <p>Ideal para una conexión rápida. Observación focalizada en sitios estratégicos sin alejarse de la civilización.</p>
-                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Tours%20Exprés" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="completo-page" class="page">
-        <header class="detail-header">
-            <div class="container"><h1>Día Completo</h1></div>
-        </header>
-        <div class="detail-content">
-            <div class="container">
-                <a onclick="showPage('home')" class="back-link">← Volver</a>
-                <div class="detail-grid">
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800" class="detail-img" alt="Completo">
-                    <div>
-                        <h3>Inmersión Profunda</h3>
-                        <p>Explora parques y reservas clave con transporte y alimentos incluidos. Máxima probabilidad de avistamientos.</p>
-                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Tours%20de%20Día%20Completo" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="premium-page" class="page">
-        <header class="detail-header">
-            <div class="container"><h1>Premium</h1></div>
-        </header>
-        <div class="detail-content">
-            <div class="container">
-                <a onclick="showPage('home')" class="back-link">← Volver</a>
-                <div class="detail-grid">
-                    <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=800" class="detail-img" alt="Premium">
-                    <div>
-                        <h3>Experiencia Exclusiva</h3>
-                        <p>Alojamiento de alto nivel y guías expertos para un nicho específico, como la fotografía de fauna silvestre.</p>
-                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Paquetes%20Premium" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="expediciones-page" class="page">
-        <header class="detail-header">
-            <div class="container"><h1>Expediciones</h1></div>
-        </header>
-        <div class="detail-content">
-            <div class="container">
-                <a onclick="showPage('home')" class="back-link">← Volver</a>
-                <div class="detail-grid">
-                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800" class="detail-img" alt="Expediciones">
-                    <div>
-                        <h3>Aventura Remota</h3>
-                        <p>Viajes de investigación y ecoturismo a áreas remotas con énfasis en la educación y conservación ambiental.</p>
-                        <a href="https://wa.me/529514069368?text=Hola,%20solicito%20información%20sobre%20Expediciones" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Reservar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer>
-        <p>© 2025 Experiencias Wildlife. Todos los derechos reservados.</p>
+        <p data-key="footer">© 2025 Experiencias Wildlife. Todos los derechos reservados.</p>
     </footer>
 
     <script>
+        // 1. DICCIONARIO DE TRADUCCIONES
+        const translations = {
+            es: {
+                navLogo: "Experiencias Wildlife",
+                navHome: "Inicio",
+                navServices: "Servicios",
+                navAbout: "Conócenos",
+                navContact: "Contacto",
+                heroTitle: "Vive, aprende y conecta con la naturaleza",
+                heroSub: "Descubre la naturaleza a través de nuestros ojos.",
+                heroBtn: "Nuestros Servicios",
+                toursTitle: "Nuestros Paquetes",
+                tour1Name: "Tours Exprés",
+                tour1Desc: "Cercanos a ciudades/hoteles. Observación focalizada en sitios cercanos.",
+                tour1Time: "3–5 Horas",
+                tour1Diff: "Dificultad: Baja",
+                tour2Name: "Día Completo",
+                tour2Desc: "Parques y Reservas. Inmersiones profundas en ecosistemas clave.",
+                tour2Time: "8–12 Horas",
+                tour2Diff: "Dificultad: Media",
+                tour3Name: "Premium",
+                tour3Desc: "Destinos Exclusivos. Experiencias con alojamiento de alto nivel.",
+                tour3Time: "2–3 días",
+                tour3Focus: "Enfoque: Fotografía",
+                tour4Name: "Expediciones",
+                tour4Desc: "Regiones Remotas. Viajes de investigación y ecoturismo profundo.",
+                tour4Time: "5–10 días",
+                tour4Diff: "Dificultad: Avanzada",
+                moreInfo: "Más información",
+                galleryTitle: "Galería Wildlife",
+                aboutTitle: "Quiénes somos",
+                aboutP1: "Experiencias Wildlife es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental en Oaxaca y la Península de Yucatán.",
+                aboutP2: "Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas.",
+                aboutP3: "Ofrecemos experiencias guiadas, servicios de fotografía y material educativo inspirado en la naturaleza.",
+                aboutHighlight: "En Experiencias Wildlife, creemos que conocer la biodiversidad es el primer paso para conservarla.",
+                contactTitle: "Contacto y Reserva",
+                location: "Oaxaca, México",
+                whatsapp: "Envíanos un WhatsApp",
+                footer: "© 2025 Experiencias Wildlife. Todos los derechos reservados.",
+                toggle: "EN"
+            },
+            en: {
+                navLogo: "Wildlife Experiences",
+                navHome: "Home",
+                navServices: "Services",
+                navAbout: "About Us",
+                navContact: "Contact",
+                heroTitle: "Live, learn and connect with nature",
+                heroSub: "Discover nature through our eyes.",
+                heroBtn: "Our Services",
+                toursTitle: "Our Packages",
+                tour1Name: "Express Tours",
+                tour1Desc: "Close to cities/hotels. Focused observation at nearby strategic sites.",
+                tour1Time: "3–5 Hours",
+                tour1Diff: "Difficulty: Low",
+                tour2Name: "Full Day",
+                tour2Desc: "Parks and Reserves. Deep immersions in key ecosystems.",
+                tour2Time: "8–12 Hours",
+                tour2Diff: "Difficulty: Medium",
+                tour3Name: "Premium",
+                tour3Desc: "Exclusive Destinations. Experiences with high-level lodging.",
+                tour3Time: "2–3 days",
+                tour3Focus: "Focus: Photography",
+                tour4Name: "Expeditions",
+                tour4Desc: "Remote Regions. Research trips and deep ecotourism.",
+                tour4Time: "5–10 days",
+                tour4Diff: "Difficulty: Advanced",
+                moreInfo: "More information",
+                galleryTitle: "Wildlife Gallery",
+                aboutTitle: "Who we are",
+                aboutP1: "Wildlife Experiences is a company dedicated to ecotourism, bird watching, nature photography, and environmental education in Oaxaca.",
+                aboutP2: "Our work is based on the integration of science, exploration, and visual storytelling to create authentic experiences.",
+                aboutP3: "We offer guided experiences, photography services, and nature-inspired educational material.",
+                aboutHighlight: "At Wildlife Experiences, we believe that knowing biodiversity is the first step to conserving it.",
+                contactTitle: "Contact & Booking",
+                location: "Oaxaca, Mexico",
+                whatsapp: "Send us a WhatsApp",
+                footer: "© 2025 Wildlife Experiences. All rights reserved.",
+                toggle: "ES"
+            }
+        };
+
+        let currentLang = 'es';
+
+        // 2. FUNCIÓN DE CAMBIO DE IDIOMA
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            const btn = document.getElementById('lang-toggle');
+            
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    el.style.opacity = 0;
+                    setTimeout(() => {
+                        el.innerHTML = translations[currentLang][key];
+                        el.style.opacity = 1;
+                    }, 200);
+                }
+            });
+
+            btn.textContent = translations[currentLang].toggle;
+            document.documentElement.lang = currentLang;
+        }
+
+        // 3. FUNCIÓN DE NAVEGACIÓN (TUYA ORIGINAL)
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
