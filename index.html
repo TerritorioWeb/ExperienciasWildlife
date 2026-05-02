@@ -47,7 +47,6 @@
         }
         .lang-btn:hover { background: var(--secondary-color); border-color: var(--secondary-color); }
 
-        /* Suavizado de cambio de idioma */
         [data-key] { transition: opacity 0.2s ease-in-out; }
 
         /* BOTONES */
@@ -127,7 +126,6 @@
             .hero-content h1 { font-size: 2.5rem; }
             .hero-tagline { font-size: 1.1rem; }
             .about-image { position: static; margin-bottom: 2rem; }
-            .nav-links li { margin: 0 0.5rem; }
         }
     </style>
 </head>
@@ -161,7 +159,6 @@
             <div class="container">
                 <h2 data-key="toursTitle">Nuestros Paquetes</h2>
                 <div class="tours-grid">
-                    <!-- Tour 1 -->
                     <div class="card card-hover">
                         <img src="Inicio/Tour_expres.png" class="card-img" alt="Tours Exprés">
                         <div class="card-body">
@@ -175,7 +172,6 @@
                         </div>
                     </div>
 
-                    <!-- Tour 2 -->
                     <div class="card card-hover">
                         <img src="Inicio/Tour_completo.png" class="card-img" alt="Día Completo">
                         <div class="card-body">
@@ -189,7 +185,6 @@
                         </div>
                     </div>
 
-                    <!-- Tour 3 -->
                     <div class="card card-hover">
                         <img src="Inicio/Tour_premium.png" class="card-img" alt="Premium">
                         <div class="card-body">
@@ -203,7 +198,6 @@
                         </div>
                     </div>
 
-                    <!-- Tour 4 -->
                     <div class="card card-hover">
                         <img src="Inicio/Expediciones.png" class="card-img" alt="Expediciones">
                         <div class="card-body">
@@ -244,9 +238,10 @@
                     </div>
                     <div class="about-content">
                         <h2 data-key="aboutTitle">Quiénes somos</h2>
-                        <p data-key="aboutP1"><strong>Experiencias Wildlife</strong> es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental, con operaciones en <strong>Oaxaca.</strong>.</p>
-                        <p data-key="aboutP2">Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas y responsables en contacto directo con la vida silvestre.</p>
-                        <p data-key="aboutP3">Ofrecemos experiencias guiadas, servicios de fotografía, material educativo y productos inspirados en la naturaleza, dirigidos tanto a personas que buscan una conexión genuina con el entorno como a proyectos técnicos.</p>
+                        <p data-key="aboutP1"><strong>Experiencias Wildlife</strong> es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental, con operaciones en <strong>Oaxaca</strong>.</p>
+                        <p data-key="aboutP2">Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas y responsables en contacto directo con la vida silvestre. Diseñamos cada recorrido, curso y producto con un enfoque técnico y ético, priorizando el respeto por los ecosistemas y la correcta interpretación del entorno natural.</p>
+                        <p data-key="aboutP3">Por eso, nuestras experiencias no se limitan a la observación: fomentan la comprensión de los procesos ecológicos, el valor de las especies y la importancia de su protección.</p>
+                        <p data-key="aboutP4">Ofrecemos experiencias guiadas, servicios de fotografía, material educativo y productos inspirados en la naturaleza, dirigidos tanto a personas que buscan una conexión genuina con el entorno como a proyectos que requieren respaldo técnico y conocimiento especializado.</p>
                         <div class="highlight-box" data-key="aboutHighlight">
                             En Experiencias Wildlife, creemos que conocer la biodiversidad es el primer paso para conservarla.
                         </div>
@@ -277,7 +272,6 @@
     </footer>
 
     <script>
-        // 1. DICCIONARIO DE TRADUCCIONES
         const translations = {
             es: {
                 navLogo: "Experiencias Wildlife",
@@ -308,9 +302,10 @@
                 moreInfo: "Más información",
                 galleryTitle: "Galería Wildlife",
                 aboutTitle: "Quiénes somos",
-                aboutP1: "Experiencias Wildlife es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental en Oaxaca y la Península de Yucatán.",
-                aboutP2: "Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas.",
-                aboutP3: "Ofrecemos experiencias guiadas, servicios de fotografía y material educativo inspirado en la naturaleza.",
+                aboutP1: "<strong>Experiencias Wildlife</strong> es una empresa dedicada al ecoturismo, la observación de aves, la fotografía de naturaleza y la educación ambiental, con operaciones en <strong>Oaxaca</strong>.",
+                aboutP2: "Nuestro trabajo se basa en la integración de ciencia, exploración y narrativa visual para crear experiencias auténticas y responsables en contacto directo con la vida silvestre. Diseñamos cada recorrido, curso y producto con un enfoque técnico y ético, priorizando el respeto por los ecosistemas y la correcta interpretación del entorno natural.",
+                aboutP3: "Por eso, nuestras experiencias no se limitan a la observación: fomentan la comprensión de los procesos ecológicos, el valor de las especies y la importancia de su protección.",
+                aboutP4: "Ofrecemos experiencias guiadas, servicios de fotografía, material educativo y productos inspirados en la naturaleza, dirigidos tanto a personas que buscan una conexión genuina con el entorno como a proyectos que requieren respaldo técnico y conocimiento especializado.",
                 aboutHighlight: "En Experiencias Wildlife, creemos que conocer la biodiversidad es el primer paso para conservarla.",
                 contactTitle: "Contacto y Reserva",
                 location: "Oaxaca, México",
@@ -347,9 +342,10 @@
                 moreInfo: "More information",
                 galleryTitle: "Wildlife Gallery",
                 aboutTitle: "Who we are",
-                aboutP1: "Wildlife Experiences is a company dedicated to ecotourism, bird watching, nature photography, and environmental education in Oaxaca.",
-                aboutP2: "Our work is based on the integration of science, exploration, and visual storytelling to create authentic experiences.",
-                aboutP3: "We offer guided experiences, photography services, and nature-inspired educational material.",
+                aboutP1: "<strong>Wildlife Experiences</strong> is a company dedicated to ecotourism, bird watching, nature photography, and environmental education, operating in <strong>Oaxaca</strong>.",
+                aboutP2: "Our work is based on the integration of science, exploration, and visual storytelling to create authentic and responsible experiences in direct contact with wildlife. We design every tour, course, and product with a technical and ethical approach, prioritizing respect for ecosystems and the correct interpretation of the natural environment.",
+                aboutP3: "Therefore, our experiences are not limited to observation: they foster an understanding of ecological processes, the value of species, and the importance of their protection.",
+                aboutP4: "We offer guided experiences, photography services, educational material, and nature-inspired products, aimed both at people seeking a genuine connection with the environment and at projects requiring technical support and specialized knowledge.",
                 aboutHighlight: "At Wildlife Experiences, we believe that knowing biodiversity is the first step to conserving it.",
                 contactTitle: "Contact & Booking",
                 location: "Oaxaca, Mexico",
@@ -361,7 +357,6 @@
 
         let currentLang = 'es';
 
-        // 2. FUNCIÓN DE CAMBIO DE IDIOMA
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             const btn = document.getElementById('lang-toggle');
@@ -381,7 +376,6 @@
             document.documentElement.lang = currentLang;
         }
 
-        // 3. FUNCIÓN DE NAVEGACIÓN (TUYA ORIGINAL)
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => p.classList.remove('active'));
@@ -393,6 +387,5 @@
             }
         }
     </script>
-
 </body>
 </html>
